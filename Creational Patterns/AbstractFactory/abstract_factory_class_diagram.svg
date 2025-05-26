@@ -1,0 +1,129 @@
+<svg width="900" height="700" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="900" height="700" fill="#f8f9fa" stroke="none"/>
+  
+  <!-- Abstract Product Interfaces -->
+  <!-- button interface -->
+  <rect x="50" y="50" width="150" height="80" fill="#e3f2fd" stroke="#1976d2" stroke-width="2"/>
+  <text x="125" y="70" text-anchor="middle" font-family="Arial" font-size="12" font-style="italic">&lt;&lt;interface&gt;&gt;</text>
+  <text x="125" y="90" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold">button</text>
+  <line x1="50" y1="95" x2="200" y2="95" stroke="#1976d2" stroke-width="1"/>
+  <text x="55" y="115" font-family="Arial" font-size="11">+ display() : void</text>
+  
+  <!-- textField interface -->
+  <rect x="250" y="50" width="150" height="80" fill="#e3f2fd" stroke="#1976d2" stroke-width="2"/>
+  <text x="325" y="70" text-anchor="middle" font-family="Arial" font-size="12" font-style="italic">&lt;&lt;interface&gt;&gt;</text>
+  <text x="325" y="90" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold">textField</text>
+  <line x1="250" y1="95" x2="400" y2="95" stroke="#1976d2" stroke-width="1"/>
+  <text x="255" y="115" font-family="Arial" font-size="11">+ display() : void</text>
+  
+  <!-- Concrete Products -->
+  <!-- LightButton -->
+  <rect x="20" y="180" width="150" height="80" fill="#fff3e0" stroke="#f57c00" stroke-width="2"/>
+  <text x="95" y="205" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold">LightButton</text>
+  <line x1="20" y1="210" x2="170" y2="210" stroke="#f57c00" stroke-width="1"/>
+  <text x="25" y="230" font-family="Arial" font-size="11">+ display() : void</text>
+  
+  <!-- DarkButton -->
+  <rect x="180" y="180" width="150" height="80" fill="#fff3e0" stroke="#f57c00" stroke-width="2"/>
+  <text x="255" y="205" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold">DarkButton</text>
+  <line x1="180" y1="210" x2="330" y2="210" stroke="#f57c00" stroke-width="1"/>
+  <text x="185" y="230" font-family="Arial" font-size="11">+ display() : void</text>
+  
+  <!-- LightTextField -->
+  <rect x="350" y="180" width="150" height="80" fill="#fff3e0" stroke="#f57c00" stroke-width="2"/>
+  <text x="425" y="205" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold">LightTextField</text>
+  <line x1="350" y1="210" x2="500" y2="210" stroke="#f57c00" stroke-width="1"/>
+  <text x="355" y="230" font-family="Arial" font-size="11">+ display() : void</text>
+  
+  <!-- DarkTextField -->
+  <rect x="510" y="180" width="150" height="80" fill="#fff3e0" stroke="#f57c00" stroke-width="2"/>
+  <text x="585" y="205" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold">DarkTextField</text>
+  <line x1="510" y1="210" x2="660" y2="210" stroke="#f57c00" stroke-width="1"/>
+  <text x="515" y="230" font-family="Arial" font-size="11">+ display() : void</text>
+  
+  <!-- Abstract Factory Interface -->
+  <rect x="300" y="320" width="200" height="100" fill="#e8f5e8" stroke="#388e3c" stroke-width="2"/>
+  <text x="400" y="340" text-anchor="middle" font-family="Arial" font-size="12" font-style="italic">&lt;&lt;interface&gt;&gt;</text>
+  <text x="400" y="360" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold">ThemeFactory</text>
+  <line x1="300" y1="365" x2="500" y2="365" stroke="#388e3c" stroke-width="1"/>
+  <text x="305" y="385" font-family="Arial" font-size="11">+ createButton() : button</text>
+  <text x="305" y="405" font-family="Arial" font-size="11">+ createTextField() : textField</text>
+  
+  <!-- Concrete Factories -->
+  <!-- LightThemeFactory -->
+  <rect x="150" y="480" width="180" height="100" fill="#fff8e1" stroke="#ffa000" stroke-width="2"/>
+  <text x="240" y="505" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold">LightThemeFactory</text>
+  <line x1="150" y1="510" x2="330" y2="510" stroke="#ffa000" stroke-width="1"/>
+  <text x="155" y="530" font-family="Arial" font-size="11">+ createButton() : button</text>
+  <text x="155" y="550" font-family="Arial" font-size="11">+ createTextField() : textField</text>
+  
+  <!-- DarkThemeFactory -->
+  <rect x="370" y="480" width="180" height="100" fill="#fff8e1" stroke="#ffa000" stroke-width="2"/>
+  <text x="460" y="505" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold">DarkThemeFactory</text>
+  <line x1="370" y1="510" x2="550" y2="510" stroke="#ffa000" stroke-width="1"/>
+  <text x="375" y="530" font-family="Arial" font-size="11">+ createButton() : button</text>
+  <text x="375" y="550" font-family="Arial" font-size="11">+ createTextField() : textField</text>
+  
+  <!-- Client -->
+  <rect x="650" y="400" width="180" height="80" fill="#f3e5f5" stroke="#7b1fa2" stroke-width="2"/>
+  <text x="740" y="425" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold">AbstractFactoryEx</text>
+  <line x1="650" y1="430" x2="830" y2="430" stroke="#7b1fa2" stroke-width="1"/>
+  <text x="655" y="450" font-family="Arial" font-size="11">+ main(String[]) : void</text>
+  
+  <!-- Implementation relationships (dashed arrows) -->
+  <!-- LightButton implements button -->
+  <line x1="95" y1="180" x2="125" y2="130" stroke="#666" stroke-width="1" stroke-dasharray="5,5" marker-end="url(#implements)"/>
+  
+  <!-- DarkButton implements button -->
+  <line x1="255" y1="180" x2="125" y2="130" stroke="#666" stroke-width="1" stroke-dasharray="5,5" marker-end="url(#implements)"/>
+  
+  <!-- LightTextField implements textField -->
+  <line x1="425" y1="180" x2="325" y2="130" stroke="#666" stroke-width="1" stroke-dasharray="5,5" marker-end="url(#implements)"/>
+  
+  <!-- DarkTextField implements textField -->
+  <line x1="585" y1="180" x2="325" y2="130" stroke="#666" stroke-width="1" stroke-dasharray="5,5" marker-end="url(#implements)"/>
+  
+  <!-- LightThemeFactory implements ThemeFactory -->
+  <line x1="240" y1="480" x2="400" y2="420" stroke="#666" stroke-width="1" stroke-dasharray="5,5" marker-end="url(#implements)"/>
+  
+  <!-- DarkThemeFactory implements ThemeFactory -->
+  <line x1="460" y1="480" x2="400" y2="420" stroke="#666" stroke-width="1" stroke-dasharray="5,5" marker-end="url(#implements)"/>
+  
+  <!-- Dependency relationships (dashed arrows) -->
+  <!-- Client uses ThemeFactory -->
+  <line x1="650" y1="420" x2="500" y2="380" stroke="#666" stroke-width="1" stroke-dasharray="3,3" marker-end="url(#dependency)"/>
+  
+  <!-- Factory creates products (curved arrows) -->
+  <!-- LightThemeFactory creates LightButton -->
+  <path d="M 240 480 Q 150 400 95 260" stroke="#666" stroke-width="1" stroke-dasharray="3,3" fill="none" marker-end="url(#dependency)"/>
+  
+  <!-- LightThemeFactory creates LightTextField -->
+  <path d="M 240 480 Q 300 400 425 260" stroke="#666" stroke-width="1" stroke-dasharray="3,3" fill="none" marker-end="url(#dependency)"/>
+  
+  <!-- DarkThemeFactory creates DarkButton -->
+  <path d="M 460 480 Q 380 400 255 260" stroke="#666" stroke-width="1" stroke-dasharray="3,3" fill="none" marker-end="url(#dependency)"/>
+  
+  <!-- DarkThemeFactory creates DarkTextField -->
+  <path d="M 460 480 Q 520 400 585 260" stroke="#666" stroke-width="1" stroke-dasharray="3,3" fill="none" marker-end="url(#dependency)"/>
+  
+  <!-- Arrow markers -->
+  <defs>
+    <marker id="implements" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <polygon points="0,0 0,6 9,3" fill="none" stroke="#666" stroke-width="1"/>
+    </marker>
+    <marker id="dependency" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <polygon points="0,0 0,6 9,3" fill="#666"/>
+    </marker>
+  </defs>
+  
+  <!-- Legend -->
+  <rect x="20" y="620" width="400" height="70" fill="#f5f5f5" stroke="#ccc" stroke-width="1"/>
+  <text x="30" y="640" font-family="Arial" font-size="12" font-weight="bold">Legend:</text>
+  <line x1="30" y1="650" x2="50" y2="650" stroke="#666" stroke-width="1" stroke-dasharray="5,5"/>
+  <text x="55" y="655" font-family="Arial" font-size="10">implements/realizes</text>
+  <line x1="180" y1="650" x2="200" y2="650" stroke="#666" stroke-width="1" stroke-dasharray="3,3"/>
+  <text x="205" y="655" font-family="Arial" font-size="10">uses/depends on</text>
+  
+  <text x="30" y="675" font-family="Arial" font-size="10">Blue: Abstract Products | Orange: Concrete Products | Green: Abstract Factory | Yellow: Concrete Factories | Purple: Client</text>
+</svg>
