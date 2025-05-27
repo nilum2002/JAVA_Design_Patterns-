@@ -1,0 +1,103 @@
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="600" fill="#f8f9fa"/>
+  
+  <!-- Image Interface -->
+  <g id="image-interface">
+    <rect x="320" y="50" width="160" height="80" fill="#e3f2fd" stroke="#1976d2" stroke-width="2"/>
+    <text x="400" y="70" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold">«interface»</text>
+    <text x="400" y="90" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Image</text>
+    <line x1="320" y1="100" x2="480" y2="100" stroke="#1976d2" stroke-width="1"/>
+    <text x="400" y="120" text-anchor="middle" font-family="Arial, sans-serif" font-size="12">+display(): void</text>
+  </g>
+  
+  <!-- RealImage Class -->
+  <g id="real-image">
+    <rect x="50" y="200" width="200" height="140" fill="#fff3e0" stroke="#f57c00" stroke-width="2"/>
+    <text x="150" y="220" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold">RealImage</text>
+    <line x1="50" y1="230" x2="250" y2="230" stroke="#f57c00" stroke-width="1"/>
+    <text x="60" y="250" font-family="Arial, sans-serif" font-size="12">-fileName: String</text>
+    <line x1="50" y1="260" x2="250" y2="260" stroke="#f57c00" stroke-width="1"/>
+    <text x="60" y="280" font-family="Arial, sans-serif" font-size="12">+RealImage(String fileName)</text>
+    <text x="60" y="300" font-family="Arial, sans-serif" font-size="12">-loadFromDisk(): void</text>
+    <text x="60" y="320" font-family="Arial, sans-serif" font-size="12">+display(): void</text>
+  </g>
+  
+  <!-- ProxyImage Class -->
+  <g id="proxy-image">
+    <rect x="350" y="200" width="200" height="140" fill="#f3e5f5" stroke="#7b1fa2" stroke-width="2"/>
+    <text x="450" y="220" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold">ProxyImage</text>
+    <line x1="350" y1="230" x2="550" y2="230" stroke="#7b1fa2" stroke-width="1"/>
+    <text x="360" y="250" font-family="Arial, sans-serif" font-size="12">-realImage: RealImage</text>
+    <text x="360" y="270" font-family="Arial, sans-serif" font-size="12">-fileName: String</text>
+    <line x1="350" y1="280" x2="550" y2="280" stroke="#7b1fa2" stroke-width="1"/>
+    <text x="360" y="300" font-family="Arial, sans-serif" font-size="12">+ProxyImage(String fileName)</text>
+    <text x="360" y="320" font-family="Arial, sans-serif" font-size="12">+display(): void</text>
+  </g>
+  
+  <!-- ProxyEx Class -->
+  <g id="proxy-ex">
+    <rect x="600" y="200" width="150" height="100" fill="#e8f5e8" stroke="#388e3c" stroke-width="2"/>
+    <text x="675" y="220" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold">ProxyEx</text>
+    <line x1="600" y1="230" x2="750" y2="230" stroke="#388e3c" stroke-width="1"/>
+    <text x="610" y="250" font-family="Arial, sans-serif" font-size="12">+main(String[] args):</text>
+    <text x="610" y="270" font-family="Arial, sans-serif" font-size="12">  void</text>
+  </g>
+  
+  <!-- Inheritance arrows (implements) -->
+  <!-- RealImage implements Image -->
+  <defs>
+    <marker id="implements-arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="none" stroke="#333" stroke-width="1"/>
+    </marker>
+  </defs>
+  
+  <!-- RealImage to Image -->
+  <line x1="150" y1="200" x2="370" y2="130" stroke="#333" stroke-width="1" stroke-dasharray="5,5" marker-end="url(#implements-arrow)"/>
+  <text x="200" y="160" font-family="Arial, sans-serif" font-size="10" fill="#666">implements</text>
+  
+  <!-- ProxyImage to Image -->
+  <line x1="450" y1="200" x2="420" y2="130" stroke="#333" stroke-width="1" stroke-dasharray="5,5" marker-end="url(#implements-arrow)"/>
+  <text x="420" y="160" font-family="Arial, sans-serif" font-size="10" fill="#666">implements</text>
+  
+  <!-- Composition arrow (ProxyImage contains RealImage) -->
+  <defs>
+    <marker id="composition-arrow" markerWidth="12" markerHeight="12" refX="11" refY="6" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,6 L6,0 L12,6 L6,12 z" fill="#333" stroke="#333" stroke-width="1"/>
+    </marker>
+  </defs>
+  
+  <line x1="350" y1="270" x2="250" y2="270" stroke="#333" stroke-width="2" marker-end="url(#composition-arrow)"/>
+  <text x="280" y="290" font-family="Arial, sans-serif" font-size="10" fill="#666">contains</text>
+  
+  <!-- Usage arrow (ProxyEx uses ProxyImage) -->
+  <defs>
+    <marker id="usage-arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="none" stroke="#666" stroke-width="1"/>
+    </marker>
+  </defs>
+  
+  <line x1="600" y1="250" x2="550" y2="250" stroke="#666" stroke-width="1" stroke-dasharray="3,3" marker-end="url(#usage-arrow)"/>
+  <text x="560" y="240" font-family="Arial, sans-serif" font-size="10" fill="#666">uses</text>
+  
+  <!-- Title -->
+  <text x="400" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold">Proxy Pattern - Class Diagram</text>
+  
+  <!-- Legend -->
+  <g id="legend">
+    <rect x="50" y="450" width="300" height="120" fill="#f5f5f5" stroke="#ccc" stroke-width="1"/>
+    <text x="60" y="470" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Legend:</text>
+    
+    <line x1="60" y1="485" x2="90" y2="485" stroke="#333" stroke-width="1" stroke-dasharray="5,5"/>
+    <text x="95" y="490" font-family="Arial, sans-serif" font-size="10">implements (interface realization)</text>
+    
+    <line x1="60" y1="505" x2="90" y2="505" stroke="#333" stroke-width="2"/>
+    <circle cx="90" cy="505" r="2" fill="#333"/>
+    <text x="95" y="510" font-family="Arial, sans-serif" font-size="10">composition (has-a relationship)</text>
+    
+    <line x1="60" y1="525" x2="90" y2="525" stroke="#666" stroke-width="1" stroke-dasharray="3,3"/>
+    <text x="95" y="530" font-family="Arial, sans-serif" font-size="10">dependency (uses)</text>
+    
+    <text x="60" y="550" font-family="Arial, sans-serif" font-size="10">+ public, - private</text>
+  </g>
+</svg>

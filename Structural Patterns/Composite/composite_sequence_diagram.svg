@@ -1,0 +1,141 @@
+<svg width="1200" height="900" xmlns="http://www.w3.org/2000/svg">
+  <!-- White background -->
+  <rect width="1200" height="900" fill="white"/>
+  
+  <!-- Title -->
+  <text x="600" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#333">
+    Composite Design Pattern - Sequence Diagram
+  </text>
+  
+  <!-- Participants -->
+  <rect x="50" y="60" width="120" height="40" fill="#d5e8d4" stroke="#82b366" stroke-width="2" rx="5"/>
+  <text x="110" y="85" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold">CompositeEx.main()</text>
+  
+  <rect x="220" y="60" width="100" height="40" fill="#fff2cc" stroke="#d6b656" stroke-width="2" rx="5"/>
+  <text x="270" y="85" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Circle</text>
+  
+  <rect x="370" y="60" width="100" height="40" fill="#fff2cc" stroke="#d6b656" stroke-width="2" rx="5"/>
+  <text x="420" y="85" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Rectangle</text>
+  
+  <rect x="520" y="60" width="140" height="40" fill="#f8cecc" stroke="#b85450" stroke-width="2" rx="5"/>
+  <text x="590" y="85" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold">CompositeGraphic01</text>
+  
+  <rect x="710" y="60" width="140" height="40" fill="#f8cecc" stroke="#b85450" stroke-width="2" rx="5"/>
+  <text x="780" y="85" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold">CompositeGraphic02</text>
+  
+  <rect x="900" y="60" width="100" height="40" fill="#fff2cc" stroke="#d6b656" stroke-width="2" rx="5"/>
+  <text x="950" y="85" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Circle (new)</text>
+  
+  <!-- Lifelines -->
+  <line x1="110" y1="100" x2="110" y2="850" stroke="#888" stroke-width="2" stroke-dasharray="5,5"/>
+  <line x1="270" y1="100" x2="270" y2="850" stroke="#888" stroke-width="2" stroke-dasharray="5,5"/>
+  <line x1="420" y1="100" x2="420" y2="850" stroke="#888" stroke-width="2" stroke-dasharray="5,5"/>
+  <line x1="590" y1="100" x2="590" y2="850" stroke="#888" stroke-width="2" stroke-dasharray="5,5"/>
+  <line x1="780" y1="100" x2="780" y2="850" stroke="#888" stroke-width="2" stroke-dasharray="5,5"/>
+  <line x1="950" y1="100" x2="950" y2="850" stroke="#888" stroke-width="2" stroke-dasharray="5,5"/>
+  
+  <!-- Activation boxes -->
+  <rect x="265" y="140" width="10" height="30" fill="#d6b656"/>
+  <rect x="415" y="190" width="10" height="30" fill="#d6b656"/>
+  <rect x="585" y="240" width="10" height="30" fill="#b85450"/>
+  <rect x="585" y="290" width="10" height="30" fill="#b85450"/>
+  <rect x="585" y="340" width="10" height="30" fill="#b85450"/>
+  <rect x="775" y="390" width="10" height="30" fill="#b85450"/>
+  <rect x="775" y="440" width="10" height="30" fill="#b85450"/>
+  <rect x="945" y="490" width="10" height="30" fill="#d6b656"/>
+  <rect x="775" y="540" width="10" height="30" fill="#b85450"/>
+  <rect x="775" y="590" width="10" height="140" fill="#b85450"/>
+  <rect x="585" y="620" width="10" height="80" fill="#b85450"/>
+  <rect x="265" y="650" width="10" height="30" fill="#d6b656"/>
+  <rect x="415" y="700" width="10" height="30" fill="#d6b656"/>
+  <rect x="945" y="760" width="10" height="30" fill="#d6b656"/>
+  
+  <!-- Object creation messages -->
+  <!-- Create circle -->
+  <line x1="110" y1="150" x2="265" y2="150" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="187" y="145" text-anchor="middle" font-family="Arial, sans-serif" font-size="11">new Circle()</text>
+  
+  <!-- Create rectangle -->
+  <line x1="110" y1="200" x2="415" y2="200" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="262" y="195" text-anchor="middle" font-family="Arial, sans-serif" font-size="11">new Rectangle()</text>
+  
+  <!-- Create compositeGraphic01 -->
+  <line x1="110" y1="250" x2="585" y2="250" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="347" y="245" text-anchor="middle" font-family="Arial, sans-serif" font-size="11">new CompositeGraphic()</text>
+  
+  <!-- Create compositeGraphic02 -->
+  <line x1="110" y1="300" x2="775" y2="300" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="442" y="295" text-anchor="middle" font-family="Arial, sans-serif" font-size="11">new CompositeGraphic()</text>
+  
+  <!-- Add operations -->
+  <!-- Add circle to composite01 -->
+  <line x1="110" y1="350" x2="585" y2="350" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="347" y="345" text-anchor="middle" font-family="Arial, sans-serif" font-size="11">add(circle)</text>
+  
+  <!-- Add rectangle to composite01 -->
+  <line x1="110" y1="400" x2="585" y2="400" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="347" y="395" text-anchor="middle" font-family="Arial, sans-serif" font-size="11">add(rectangle)</text>
+  
+  <!-- Add composite01 to composite02 -->
+  <line x1="110" y1="450" x2="775" y2="450" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="442" y="445" text-anchor="middle" font-family="Arial, sans-serif" font-size="11">add(compositeGraphic01)</text>
+  
+  <!-- Create new Circle -->
+  <line x1="110" y1="500" x2="945" y2="500" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="527" y="495" text-anchor="middle" font-family="Arial, sans-serif" font-size="11">new Circle()</text>
+  
+  <!-- Add new Circle to composite02 -->
+  <line x1="110" y1="550" x2="775" y2="550" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="442" y="545" text-anchor="middle" font-family="Arial, sans-serif" font-size="11">add(new Circle())</text>
+  
+  <!-- Draw operation starts -->
+  <rect x="50" y="580" width="150" height="15" fill="#ffffcc" stroke="#cccc00" rx="3"/>
+  <text x="125" y="592" text-anchor="middle" font-family="Arial, sans-serif" font-size="10">compositeGraphic02.draw()</text>
+  
+  <!-- Main draw call -->
+  <line x1="110" y1="600" x2="775" y2="600" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="442" y="595" text-anchor="middle" font-family="Arial, sans-serif" font-size="11">draw()</text>
+  
+  <!-- CompositeGraphic02 iterates through children -->
+  <rect x="790" y="620" width="200" height="15" fill="#f0f0f0" stroke="#ccc" rx="3"/>
+  <text x="890" y="632" text-anchor="middle" font-family="Arial, sans-serif" font-size="9">for each child in children</text>
+  
+  <!-- Draw call to compositeGraphic01 -->
+  <line x1="780" y1="650" x2="585" y2="650" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="682" y="645" text-anchor="middle" font-family="Arial, sans-serif" font-size="11">draw()</text>
+  
+  <!-- CompositeGraphic01 iterates through its children -->
+  <rect x="400" y="670" width="180" height="15" fill="#f0f0f0" stroke="#ccc" rx="3"/>
+  <text x="490" y="682" text-anchor="middle" font-family="Arial, sans-serif" font-size="9">for each child in children</text>
+  
+  <!-- Draw call to circle -->
+  <line x1="585" y1="690" x2="265" y2="690" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="425" y="685" text-anchor="middle" font-family="Arial, sans-serif" font-size="11">draw()</text>
+  
+  <!-- Circle prints -->
+  <rect x="180" y="710" width="180" height="15" fill="#e8f8e8" stroke="#4caf50" rx="3"/>
+  <text x="270" y="722" text-anchor="middle" font-family="Arial, sans-serif" font-size="9">System.out.println("Drawing Circle")</text>
+  
+  <!-- Draw call to rectangle -->
+  <line x1="585" y1="740" x2="415" y2="740" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="500" y="735" text-anchor="middle" font-family="Arial, sans-serif" font-size="11">draw()</text>
+  
+  <!-- Rectangle prints -->
+  <rect x="330" y="760" width="180" height="15" fill="#e8f8e8" stroke="#4caf50" rx="3"/>
+  <text x="420" y="772" text-anchor="middle" font-family="Arial, sans-serif" font-size="9">System.out.println("Drawing Rectangle")</text>
+  
+  <!-- Draw call to new Circle -->
+  <line x1="780" y1="800" x2="945" y2="800" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="862" y="795" text-anchor="middle" font-family="Arial, sans-serif" font-size="11">draw()</text>
+  
+  <!-- New Circle prints -->
+  <rect x="860" y="820" width="180" height="15" fill="#e8f8e8" stroke="#4caf50" rx="3"/>
+  <text x="950" y="832" text-anchor="middle" font-family="Arial, sans-serif" font-size="9">System.out.println("Drawing Circle")</text>
+  
+  <!-- Arrow marker definition -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#333"/>
+    </marker>
+  </defs>
+</svg>

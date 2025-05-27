@@ -1,0 +1,175 @@
+<svg width="1200" height="900" xmlns="http://www.w3.org/2000/svg">
+  <!-- White background -->
+  <rect width="1200" height="900" fill="white"/>
+  
+  <!-- Title -->
+  <text x="600" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#333">
+    Decorator Design Pattern - Sequence Diagram
+  </text>
+  
+  <!-- Participants -->
+  <rect x="50" y="60" width="120" height="40" fill="#d5e8d4" stroke="#82b366" stroke-width="2" rx="5"/>
+  <text x="110" y="85" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Decorator.main()</text>
+  
+  <rect x="220" y="60" width="120" height="40" fill="#fff2cc" stroke="#d6b656" stroke-width="2" rx="5"/>
+  <text x="280" y="85" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold">SimpleCoffee</text>
+  
+  <rect x="390" y="60" width="120" height="40" fill="#f8cecc" stroke="#b85450" stroke-width="2" rx="5"/>
+  <text x="450" y="85" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold">MilkDecorator</text>
+  
+  <rect x="560" y="60" width="120" height="40" fill="#f8cecc" stroke="#b85450" stroke-width="2" rx="5"/>
+  <text x="620" y="85" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold">SugarDecorator</text>
+  
+  <rect x="730" y="60" width="100" height="40" fill="#e1d5e7" stroke="#9673a6" stroke-width="2" rx="5"/>
+  <text x="780" y="85" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold">System.out</text>
+  
+  <!-- Lifelines -->
+  <line x1="110" y1="100" x2="110" y2="850" stroke="#888" stroke-width="2" stroke-dasharray="5,5"/>
+  <line x1="280" y1="100" x2="280" y2="850" stroke="#888" stroke-width="2" stroke-dasharray="5,5"/>
+  <line x1="450" y1="100" x2="450" y2="850" stroke="#888" stroke-width="2" stroke-dasharray="5,5"/>
+  <line x1="620" y1="100" x2="620" y2="850" stroke="#888" stroke-width="2" stroke-dasharray="5,5"/>
+  <line x1="780" y1="100" x2="780" y2="850" stroke="#888" stroke-width="2" stroke-dasharray="5,5"/>
+  
+  <!-- Activation boxes -->
+  <rect x="275" y="140" width="10" height="30" fill="#d6b656"/>
+  <rect x="275" y="190" width="10" height="30" fill="#d6b656"/>
+  <rect x="275" y="240" width="10" height="30" fill="#d6b656"/>
+  <rect x="445" y="330" width="10" height="30" fill="#b85450"/>
+  <rect x="445" y="380" width="10" height="60" fill="#b85450"/>
+  <rect x="275" y="400" width="10" height="30" fill="#d6b656"/>
+  <rect x="445" y="460" width="10" height="60" fill="#b85450"/>
+  <rect x="275" y="480" width="10" height="30" fill="#d6b656"/>
+  <rect x="615" y="560" width="10" height="30" fill="#b85450"/>
+  <rect x="615" y="610" width="10" height="100" fill="#b85450"/>
+  <rect x="445" y="630" width="10" height="60" fill="#b85450"/>
+  <rect x="275" y="650" width="10" height="30" fill="#d6b656"/>
+  <rect x="615" y="730" width="10" height="80" fill="#b85450"/>
+  <rect x="445" y="750" width="10" height="40" fill="#b85450"/>
+  <rect x="275" y="770" width="10" height="20" fill="#d6b656"/>
+  
+  <!-- Object creation and initial calls -->
+  <!-- Create SimpleCoffee -->
+  <line x1="110" y1="150" x2="275" y2="150" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="192" y="145" text-anchor="middle" font-family="Arial, sans-serif" font-size="11">new SimpleCoffee()</text>
+  
+  <!-- First getCost() call -->
+  <line x1="110" y1="200" x2="275" y2="200" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="192" y="195" text-anchor="middle" font-family="Arial, sans-serif" font-size="11">getCost()</text>
+  
+  <line x1="275" y1="220" x2="115" y2="220" stroke="#333" stroke-width="2" stroke-dasharray="3,3" marker-end="url(#arrowhead)"/>
+  <text x="195" y="215" text-anchor="middle" font-family="Arial, sans-serif" font-size="10">return 5.0</text>
+  
+  <!-- First getDescription() call -->
+  <line x1="110" y1="250" x2="275" y2="250" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="192" y="245" text-anchor="middle" font-family="Arial, sans-serif" font-size="11">getDescription()</text>
+  
+  <line x1="275" y1="270" x2="115" y2="270" stroke="#333" stroke-width="2" stroke-dasharray="3,3" marker-end="url(#arrowhead)"/>
+  <text x="195" y="265" text-anchor="middle" font-family="Arial, sans-serif" font-size="10">return "Simple Coffee"</text>
+  
+  <!-- Print statements -->
+  <line x1="110" y1="290" x2="775" y2="290" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="442" y="285" text-anchor="middle" font-family="Arial, sans-serif" font-size="11">println("Cost: 5.0")</text>
+  
+  <line x1="110" y1="310" x2="775" y2="310" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="442" y="305" text-anchor="middle" font-family="Arial, sans-serif" font-size="11">println("Description: Simple Coffee")</text>
+  
+  <!-- Adding Milk Decorator -->
+  <rect x="50" y="320" width="150" height="15" fill="#ffffcc" stroke="#cccc00" rx="3"/>
+  <text x="125" y="332" text-anchor="middle" font-family="Arial, sans-serif" font-size="10">Adding Milk Decorator</text>
+  
+  <!-- Create MilkDecorator -->
+  <line x1="110" y1="340" x2="445" y2="340" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="277" y="335" text-anchor="middle" font-family="Arial, sans-serif" font-size="11">new MilkDecorator(coffee)</text>
+  
+  <!-- MilkDecorator getCost() -->
+  <line x1="110" y1="390" x2="445" y2="390" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="277" y="385" text-anchor="middle" font-family="Arial, sans-serif" font-size="11">getCost()</text>
+  
+  <!-- MilkDecorator calls super.getCost() which calls SimpleCoffee getCost() -->
+  <line x1="450" y1="410" x2="275" y2="410" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="362" y="405" text-anchor="middle" font-family="Arial, sans-serif" font-size="11">decoratedCoffee.getCost()</text>
+  
+  <line x1="275" y1="430" x2="450" y2="430" stroke="#333" stroke-width="2" stroke-dasharray="3,3" marker-end="url(#arrowhead)"/>
+  <text x="362" y="425" text-anchor="middle" font-family="Arial, sans-serif" font-size="10">return 5.0</text>
+  
+  <line x1="445" y1="450" x2="115" y2="450" stroke="#333" stroke-width="2" stroke-dasharray="3,3" marker-end="url(#arrowhead)"/>
+  <text x="280" y="445" text-anchor="middle" font-family="Arial, sans-serif" font-size="10">return 6.5 (5.0 + 1.5)</text>
+  
+  <!-- MilkDecorator getDescription() -->
+  <line x1="110" y1="470" x2="445" y2="470" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="277" y="465" text-anchor="middle" font-family="Arial, sans-serif" font-size="11">getDescription()</text>
+  
+  <!-- MilkDecorator calls super.getDescription() -->
+  <line x1="450" y1="490" x2="275" y2="490" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="362" y="485" text-anchor="middle" font-family="Arial, sans-serif" font-size="11">decoratedCoffee.getDescription()</text>
+  
+  <line x1="275" y1="510" x2="450" y2="510" stroke="#333" stroke-width="2" stroke-dasharray="3,3" marker-end="url(#arrowhead)"/>
+  <text x="362" y="505" text-anchor="middle" font-family="Arial, sans-serif" font-size="10">return "Simple Coffee"</text>
+  
+  <line x1="445" y1="530" x2="115" y2="530" stroke="#333" stroke-width="2" stroke-dasharray="3,3" marker-end="url(#arrowhead)"/>
+  <text x="280" y="525" text-anchor="middle" font-family="Arial, sans-serif" font-size="10">return "Simple Coffee, Milk"</text>
+  
+  <!-- Print milk results -->
+  <line x1="110" y1="540" x2="775" y2="540" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="442" y="535" text-anchor="middle" font-family="Arial, sans-serif" font-size="11">println("Cost after adding milk: 6.5")</text>
+  
+  <!-- Adding Sugar Decorator -->
+  <rect x="50" y="550" width="150" height="15" fill="#ffffcc" stroke="#cccc00" rx="3"/>
+  <text x="125" y="562" text-anchor="middle" font-family="Arial, sans-serif" font-size="10">Adding Sugar Decorator</text>
+  
+  <!-- Create SugarDecorator -->
+  <line x1="110" y1="570" x2="615" y2="570" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="362" y="565" text-anchor="middle" font-family="Arial, sans-serif" font-size="11">new SugarDecorator(coffee)</text>
+  
+  <!-- SugarDecorator getCost() -->
+  <line x1="110" y1="620" x2="615" y2="620" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="362" y="615" text-anchor="middle" font-family="Arial, sans-serif" font-size="11">getCost()</text>
+  
+  <!-- SugarDecorator calls MilkDecorator getCost() -->
+  <line x1="620" y1="640" x2="445" y2="640" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="532" y="635" text-anchor="middle" font-family="Arial, sans-serif" font-size="11">decoratedCoffee.getCost()</text>
+  
+  <!-- MilkDecorator calls SimpleCoffee getCost() -->
+  <line x1="450" y1="660" x2="275" y2="660" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="362" y="655" text-anchor="middle" font-family="Arial, sans-serif" font-size="11">decoratedCoffee.getCost()</text>
+  
+  <line x1="275" y1="680" x2="450" y2="680" stroke="#333" stroke-width="2" stroke-dasharray="3,3" marker-end="url(#arrowhead)"/>
+  <text x="362" y="675" text-anchor="middle" font-family="Arial, sans-serif" font-size="10">return 5.0</text>
+  
+  <line x1="445" y1="700" x2="620" y2="700" stroke="#333" stroke-width="2" stroke-dasharray="3,3" marker-end="url(#arrowhead)"/>
+  <text x="532" y="695" text-anchor="middle" font-family="Arial, sans-serif" font-size="10">return 6.5</text>
+  
+  <line x1="615" y1="720" x2="115" y2="720" stroke="#333" stroke-width="2" stroke-dasharray="3,3" marker-end="url(#arrowhead)"/>
+  <text x="365" y="715" text-anchor="middle" font-family="Arial, sans-serif" font-size="10">return 7.0 (6.5 + 0.5)</text>
+  
+  <!-- SugarDecorator getDescription() -->
+  <line x1="110" y1="740" x2="615" y2="740" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="362" y="735" text-anchor="middle" font-family="Arial, sans-serif" font-size="11">getDescription()</text>
+  
+  <!-- Chain of getDescription calls -->
+  <line x1="620" y1="760" x2="445" y2="760" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="532" y="755" text-anchor="middle" font-family="Arial, sans-serif" font-size="11">decoratedCoffee.getDescription()</text>
+  
+  <line x1="450" y1="780" x2="275" y2="780" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="362" y="775" text-anchor="middle" font-family="Arial, sans-serif" font-size="11">decoratedCoffee.getDescription()</text>
+  
+  <line x1="275" y1="790" x2="450" y2="790" stroke="#333" stroke-width="2" stroke-dasharray="3,3" marker-end="url(#arrowhead)"/>
+  <text x="362" y="785" text-anchor="middle" font-family="Arial, sans-serif" font-size="9">return "Simple Coffee"</text>
+  
+  <line x1="445" y1="800" x2="620" y2="800" stroke="#333" stroke-width="2" stroke-dasharray="3,3" marker-end="url(#arrowhead)"/>
+  <text x="532" y="795" text-anchor="middle" font-family="Arial, sans-serif" font-size="9">return "Simple Coffee, Milk"</text>
+  
+  <line x1="615" y1="820" x2="115" y2="820" stroke="#333" stroke-width="2" stroke-dasharray="3,3" marker-end="url(#arrowhead)"/>
+  <text x="365" y="815" text-anchor="middle" font-family="Arial, sans-serif" font-size="9">return "Simple Coffee, Milk, Sugar"</text>
+  
+  <!-- Final print statements -->
+  <line x1="110" y1="840" x2="775" y2="840" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="442" y="835" text-anchor="middle" font-family="Arial, sans-serif" font-size="11">println("Cost after adding sugar: 7.0")</text>
+  
+  <!-- Arrow marker definition -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#333"/>
+    </marker>
+  </defs>
+</svg>

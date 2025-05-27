@@ -1,0 +1,212 @@
+<svg width="1000" height="800" xmlns="http://www.w3.org/2000/svg" style="background-color: white;">
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" 
+     refX="0" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="black" />
+    </marker>
+    <marker id="selfcall" markerWidth="8" markerHeight="8" 
+     refX="4" refY="4" orient="auto">
+      <circle cx="4" cy="4" r="3" fill="white" stroke="black" stroke-width="1"/>
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="500" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold">Flyweight Pattern - Sequence Diagram</text>
+  
+  <!-- Actors/Objects -->
+  <g id="actors">
+    <!-- Main -->
+    <rect x="50" y="60" width="80" height="40" fill="#f0f8e6" stroke="#228b22" stroke-width="2"/>
+    <text x="90" y="85" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Main</text>
+    
+    <!-- FlyweightFactory -->
+    <rect x="200" y="60" width="140" height="40" fill="#fff2e6" stroke="#d2691e" stroke-width="2"/>
+    <text x="270" y="85" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold">FlyweightFactory</text>
+    
+    <!-- HashMap -->
+    <rect x="420" y="60" width="100" height="40" fill="#f0f0f0" stroke="#666" stroke-width="2"/>
+    <text x="470" y="85" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold">HashMap</text>
+    
+    <!-- ConcreteFlyweight1 -->
+    <rect x="600" y="60" width="140" height="40" fill="#e6f3ff" stroke="#2c5aa0" stroke-width="2"/>
+    <text x="670" y="85" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold">ConcreteFlyweight</text>
+    <text x="670" y="95" text-anchor="middle" font-family="Arial, sans-serif" font-size="10">(State1)</text>
+    
+    <!-- ConcreteFlyweight2 -->
+    <rect x="820" y="60" width="140" height="40" fill="#e6f3ff" stroke="#2c5aa0" stroke-width="2"/>
+    <text x="890" y="85" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold">ConcreteFlyweight</text>
+    <text x="890" y="95" text-anchor="middle" font-family="Arial, sans-serif" font-size="10">(State2)</text>
+  </g>
+  
+  <!-- Lifelines -->
+  <g id="lifelines" stroke="#666" stroke-width="2" stroke-dasharray="5,5">
+    <line x1="90" y1="100" x2="90" y2="750"/>
+    <line x1="270" y1="100" x2="270" y2="750"/>
+    <line x1="470" y1="100" x2="470" y2="750"/>
+    <line x1="670" y1="100" x2="670" y2="750"/>
+    <line x1="890" y1="100" x2="890" y2="750"/>
+  </g>
+  
+  <!-- Activation boxes -->
+  <g id="activations" fill="#ffffcc" stroke="black" stroke-width="1">
+    <rect x="85" y="120" width="10" height="580"/>
+    <rect x="265" y="140" width="10" height="80"/>
+    <rect x="265" y="280" width="10" height="80"/>
+    <rect x="265" y="420" width="10" height="80"/>
+    <rect x="265" y="560" width="10" height="80"/>
+    <rect x="465" y="160" width="10" height="20"/>
+    <rect x="465" y="300" width="10" height="20"/>
+    <rect x="465" y="440" width="10" height="20"/>
+    <rect x="665" y="180" width="10" height="40"/>
+    <rect x="665" y="380" width="10" height="40"/>
+    <rect x="665" y="520" width="10" height="40"/>
+    <rect x="885" y="340" width="10" height="40"/>
+  </g>
+  
+  <!-- Messages -->
+  <g id="messages" font-family="Arial, sans-serif" font-size="11">
+    
+    <!-- Constructor call -->
+    <line x1="95" y1="130" x2="265" y2="130" stroke="black" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <text x="180" y="125" text-anchor="middle">new FlyweightFactory()</text>
+    
+    <!-- First getFlyweight call -->
+    <line x1="95" y1="150" x2="265" y2="150" stroke="black" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <text x="180" y="145" text-anchor="middle">getFlyweight("State1")</text>
+    
+    <!-- Check HashMap -->
+    <line x1="275" y1="170" x2="465" y2="170" stroke="black" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <text x="370" y="165" text-anchor="middle">containsKey("State1")</text>
+    
+    <!-- HashMap returns false -->
+    <line x1="465" y1="180" x2="275" y2="180" stroke="black" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrowhead)"/>
+    <text x="370" y="175" text-anchor="middle">false</text>
+    
+    <!-- Create new ConcreteFlyweight -->
+    <line x1="275" y1="190" x2="665" y2="190" stroke="black" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <text x="470" y="185" text-anchor="middle">new ConcreteFlyweight("State1")</text>
+    
+    <!-- Store in HashMap -->
+    <line x1="275" y1="200" x2="465" y2="200" stroke="black" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <text x="370" y="195" text-anchor="middle">put("State1", flyweight)</text>
+    
+    <!-- Return flyweight -->
+    <line x1="265" y1="210" x2="95" y2="210" stroke="black" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrowhead)"/>
+    <text x="180" y="205" text-anchor="middle">return flyweight1</text>
+    
+    <!-- First operation call -->
+    <line x1="95" y1="230" x2="665" y2="230" stroke="black" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <text x="380" y="225" text-anchor="middle">operation("Extrinsic1")</text>
+    
+    <!-- Print output -->
+    <text x="50" y="260" font-style="italic" fill="#666">Output: "Intrinsic State: State1, Extrinsic State: Extrinsic1"</text>
+    
+    <!-- Second getFlyweight call -->
+    <line x1="95" y1="290" x2="265" y2="290" stroke="black" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <text x="180" y="285" text-anchor="middle">getFlyweight("State2")</text>
+    
+    <!-- Check HashMap -->
+    <line x1="275" y1="310" x2="465" y2="310" stroke="black" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <text x="370" y="305" text-anchor="middle">containsKey("State2")</text>
+    
+    <!-- HashMap returns false -->
+    <line x1="465" y1="320" x2="275" y2="320" stroke="black" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrowhead)"/>
+    <text x="370" y="315" text-anchor="middle">false</text>
+    
+    <!-- Create new ConcreteFlyweight -->
+    <line x1="275" y1="330" x2="885" y2="330" stroke="black" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <text x="580" y="325" text-anchor="middle">new ConcreteFlyweight("State2")</text>
+    
+    <!-- Store in HashMap -->
+    <line x1="275" y1="340" x2="465" y2="340" stroke="black" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <text x="370" y="335" text-anchor="middle">put("State2", flyweight)</text>
+    
+    <!-- Return flyweight -->
+    <line x1="265" y1="350" x2="95" y2="350" stroke="black" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrowhead)"/>
+    <text x="180" y="345" text-anchor="middle">return flyweight2</text>
+    
+    <!-- Second operation call -->
+    <line x1="95" y1="370" x2="885" y2="370" stroke="black" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <text x="490" y="365" text-anchor="middle">operation("Extrinsic2")</text>
+    
+    <!-- Print output -->
+    <text x="50" y="400" font-style="italic" fill="#666">Output: "Intrinsic State: State2, Extrinsic State: Extrinsic2"</text>
+    
+    <!-- Third getFlyweight call (reuse) -->
+    <line x1="95" y1="430" x2="265" y2="430" stroke="black" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <text x="180" y="425" text-anchor="middle">getFlyweight("State1")</text>
+    
+    <!-- Check HashMap -->
+    <line x1="275" y1="450" x2="465" y2="450" stroke="black" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <text x="370" y="445" text-anchor="middle">containsKey("State1")</text>
+    
+    <!-- HashMap returns true -->
+    <line x1="465" y1="460" x2="275" y2="460" stroke="black" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrowhead)"/>
+    <text x="370" y="455" text-anchor="middle">true</text>
+    
+    <!-- Get existing flyweight -->
+    <line x1="275" y1="470" x2="465" y2="470" stroke="black" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <text x="370" y="465" text-anchor="middle">get("State1")</text>
+    
+    <!-- Return existing flyweight -->
+    <line x1="265" y1="490" x2="95" y2="490" stroke="black" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrowhead)"/>
+    <text x="180" y="485" text-anchor="middle">return flyweight1 (reused)</text>
+    
+    <!-- Third operation call -->
+    <line x1="95" y1="510" x2="665" y2="510" stroke="black" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <text x="380" y="505" text-anchor="middle">operation("Extrinsic3")</text>
+    
+    <!-- Print output -->
+    <text x="50" y="540" font-style="italic" fill="#666">Output: "Intrinsic State: State1, Extrinsic State: Extrinsic3"</text>
+    
+    <!-- Get flyweight count -->
+    <line x1="95" y1="570" x2="265" y2="570" stroke="black" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <text x="180" y="565" text-anchor="middle">getFlyweightCount()</text>
+    
+    <!-- Return count -->
+    <line x1="265" y1="590" x2="95" y2="590" stroke="black" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrowhead)"/>
+    <text x="180" y="585" text-anchor="middle">return 2</text>
+    
+    <!-- Final print -->
+    <text x="50" y="620" font-style="italic" fill="#666">Output: "Total Flyweights created: 2"</text>
+  </g>
+  
+  <!-- Sequence numbers -->
+  <g id="sequence-numbers" font-family="Arial, sans-serif" font-size="10" fill="blue">
+    <circle cx="120" cy="130" r="8" fill="lightblue" stroke="blue"/>
+    <text x="120" y="135" text-anchor="middle">1</text>
+    
+    <circle cx="120" cy="150" r="8" fill="lightblue" stroke="blue"/>
+    <text x="120" y="155" text-anchor="middle">2</text>
+    
+    <circle cx="120" cy="290" r="8" fill="lightblue" stroke="blue"/>
+    <text x="120" y="295" text-anchor="middle">3</text>
+    
+    <circle cx="120" cy="430" r="8" fill="lightblue" stroke="blue"/>
+    <text x="120" y="435" text-anchor="middle">4</text>
+    
+    <circle cx="120" cy="570" r="8" fill="lightblue" stroke="blue"/>
+    <text x="120" y="575" text-anchor="middle">5</text>
+  </g>
+  
+  <!-- Key Insights -->
+  <g id="insights">
+    <rect x="50" y="650" width="900" height="80" fill="#f9f9f9" stroke="#666" stroke-width="1"/>
+    <text x="60" y="670" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Key Flyweight Pattern Behaviors:</text>
+    <text x="60" y="690" font-family="Arial, sans-serif" font-size="11">• <tspan font-weight="bold">Object Sharing:</tspan> flyweight3 reuses the same instance as flyweight1 (State1)</text>
+    <text x="60" y="705" font-family="Arial, sans-serif" font-size="11">• <tspan font-weight="bold">Memory Efficiency:</tspan> Only 2 objects created for 3 requests</text>
+    <text x="60" y="720" font-family="Arial, sans-serif" font-size="11">• <tspan font-weight="bold">State Separation:</tspan> Intrinsic state stored in flyweight, extrinsic state passed as parameter</text>
+  </g>
+  
+  <!-- Legend -->
+  <g id="legend">
+    <rect x="750" y="550" width="200" height="80" fill="none" stroke="#666" stroke-width="1"/>
+    <text x="760" y="570" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Legend:</text>
+    <line x1="760" y1="580" x2="790" y2="580" stroke="black" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <text x="800" y="585" font-family="Arial, sans-serif" font-size="10">Method call</text>
+    <line x1="760" y1="595" x2="790" y2="595" stroke="black" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrowhead)"/>
+    <text x="800" y="600" font-family="Arial, sans-serif" font-size="10">Return</text>
+    <rect x="760" y="610" width="10" height="15" fill="#ffffcc" stroke="black" stroke-width="1"/>
+    <text x="780" y="622" font-family="Arial, sans-serif" font-size="10">Activation</text>
+  </g>
+</svg>

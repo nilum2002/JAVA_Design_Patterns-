@@ -1,0 +1,110 @@
+<svg width="900" height="700" xmlns="http://www.w3.org/2000/svg">
+  <!-- White background -->
+  <rect width="900" height="700" fill="white"/>
+  
+  <!-- Title -->
+  <text x="450" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#333">
+    Composite Design Pattern - Class Diagram
+  </text>
+  
+  <!-- Interface: Graphic -->
+  <rect x="350" y="70" width="200" height="80" fill="#e8f4fd" stroke="#4a90e2" stroke-width="2" rx="5"/>
+  <text x="450" y="90" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold">&lt;&lt;interface&gt;&gt;</text>
+  <text x="450" y="108" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Graphic</text>
+  <line x1="360" y1="120" x2="540" y2="120" stroke="#4a90e2" stroke-width="1"/>
+  <text x="450" y="140" text-anchor="middle" font-family="Arial, sans-serif" font-size="12">+ draw() : void</text>
+  
+  <!-- Class: Circle -->
+  <rect x="100" y="220" width="180" height="100" fill="#fff2cc" stroke="#d6b656" stroke-width="2" rx="5"/>
+  <text x="190" y="245" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Circle</text>
+  <line x1="110" y1="255" x2="270" y2="255" stroke="#d6b656" stroke-width="1"/>
+  <text x="190" y="280" text-anchor="middle" font-family="Arial, sans-serif" font-size="12">+ draw() : void</text>
+  <text x="115" y="305" font-family="Arial, sans-serif" font-size="10" fill="#666">// Implements Graphic interface</text>
+  
+  <!-- Class: Rectangle -->
+  <rect x="320" y="220" width="180" height="100" fill="#fff2cc" stroke="#d6b656" stroke-width="2" rx="5"/>
+  <text x="410" y="245" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Rectangle</text>
+  <line x1="330" y1="255" x2="490" y2="255" stroke="#d6b656" stroke-width="1"/>
+  <text x="410" y="280" text-anchor="middle" font-family="Arial, sans-serif" font-size="12">+ draw() : void</text>
+  <text x="335" y="305" font-family="Arial, sans-serif" font-size="10" fill="#666">// Implements Graphic interface</text>
+  
+  <!-- Class: CompositeGraphic -->
+  <rect x="540" y="200" width="250" height="140" fill="#f8cecc" stroke="#b85450" stroke-width="2" rx="5"/>
+  <text x="665" y="225" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold">CompositeGraphic</text>
+  <line x1="550" y1="235" x2="780" y2="235" stroke="#b85450" stroke-width="1"/>
+  <text x="555" y="255" font-family="Arial, sans-serif" font-size="12">- children : List&lt;Graphic&gt;</text>
+  <line x1="550" y1="265" x2="780" y2="265" stroke="#b85450" stroke-width="1"/>
+  <text x="555" y="285" font-family="Arial, sans-serif" font-size="12">+ add(graphic: Graphic) : void</text>
+  <text x="555" y="305" font-family="Arial, sans-serif" font-size="12">+ remove(graphic: Graphic) : void</text>
+  <text x="555" y="325" font-family="Arial, sans-serif" font-size="12">+ draw() : void</text>
+  
+  <!-- Class: CompositeEx (Main class) -->
+  <rect x="320" y="400" width="200" height="80" fill="#d5e8d4" stroke="#82b366" stroke-width="2" rx="5"/>
+  <text x="420" y="425" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold">CompositeEx</text>
+  <line x1="330" y1="435" x2="510" y2="435" stroke="#82b366" stroke-width="1"/>
+  <text x="420" y="460" text-anchor="middle" font-family="Arial, sans-serif" font-size="12">+ main(args: String[]) : void</text>
+  
+  <!-- Inheritance arrows (implements) -->
+  <!-- Circle implements Graphic -->
+  <line x1="190" y1="220" x2="190" y2="180" stroke="#333" stroke-width="2"/>
+  <line x1="190" y1="180" x2="420" y2="180" stroke="#333" stroke-width="2"/>
+  <line x1="420" y1="180" x2="420" y2="150" stroke="#333" stroke-width="2"/>
+  <polygon points="415,155 420,150 425,155" fill="white" stroke="#333" stroke-width="2"/>
+  
+  <!-- Rectangle implements Graphic -->
+  <line x1="410" y1="220" x2="410" y2="180" stroke="#333" stroke-width="2"/>
+  <line x1="410" y1="180" x2="450" y2="180" stroke="#333" stroke-width="2"/>
+  <line x1="450" y1="180" x2="450" y2="150" stroke="#333" stroke-width="2"/>
+  <polygon points="445,155 450,150 455,155" fill="white" stroke="#333" stroke-width="2"/>
+  
+  <!-- CompositeGraphic implements Graphic -->
+  <line x1="665" y1="200" x2="665" y2="180" stroke="#333" stroke-width="2"/>
+  <line x1="665" y1="180" x2="480" y2="180" stroke="#333" stroke-width="2"/>
+  <line x1="480" y1="180" x2="480" y2="150" stroke="#333" stroke-width="2"/>
+  <polygon points="475,155 480,150 485,155" fill="white" stroke="#333" stroke-width="2"/>
+  
+  <!-- Composition relationship (CompositeGraphic contains Graphic objects) -->
+  <line x1="540" y1="250" x2="500" y2="250" stroke="#333" stroke-width="2"/>
+  <line x1="500" y1="250" x2="500" y2="110" stroke="#333" stroke-width="2"/>
+  <line x1="500" y1="110" x2="550" y2="110" stroke="#333" stroke-width="2"/>
+  <polygon points="540,105 550,110 540,115" fill="#333"/>
+  <rect x="535" y="245" width="10" height="10" fill="#333"/>
+  <text x="505" y="180" font-family="Arial, sans-serif" font-size="10" fill="#666">children</text>
+  <text x="505" y="195" font-family="Arial, sans-serif" font-size="10" fill="#666">0..*</text>
+  
+  <!-- Usage relationship (CompositeEx uses classes) -->
+  <line x1="420" y1="400" x2="420" y2="370" stroke="#333" stroke-width="2" stroke-dasharray="5,5"/>
+  <polygon points="415,375 420,370 425,375" fill="#333"/>
+  <text x="430" y="385" font-family="Arial, sans-serif" font-size="10" fill="#666">&lt;&lt;uses&gt;&gt;</text>
+  
+  <!-- Legend -->
+  <rect x="50" y="550" width="300" height="120" fill="#f9f9f9" stroke="#ccc" stroke-width="1" rx="5"/>
+  <text x="200" y="575" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Legend</text>
+  
+  <!-- Interface legend -->
+  <rect x="60" y="585" width="60" height="20" fill="#e8f4fd" stroke="#4a90e2" stroke-width="1" rx="2"/>
+  <text x="135" y="598" font-family="Arial, sans-serif" font-size="11">Interface</text>
+  
+  <!-- Leaf classes legend -->
+  <rect x="60" y="610" width="60" height="20" fill="#fff2cc" stroke="#d6b656" stroke-width="1" rx="2"/>
+  <text x="135" y="623" font-family="Arial, sans-serif" font-size="11">Leaf Classes (Circle, Rectangle)</text>
+  
+  <!-- Composite class legend -->
+  <rect x="60" y="635" width="60" height="20" fill="#f8cecc" stroke="#b85450" stroke-width="1" rx="2"/>
+  <text x="135" y="648" font-family="Arial, sans-serif" font-size="11">Composite Class</text>
+  
+  <!-- Arrows legend -->
+  <line x1="250" y1="590" x2="280" y2="590" stroke="#333" stroke-width="2"/>
+  <polygon points="275,585 280,590 275,595" fill="white" stroke="#333" stroke-width="2"/>
+  <text x="315" y="595" font-family="Arial, sans-serif" font-size="11">Implements</text>
+  
+  <line x1="250" y1="615" x2="280" y2="615" stroke="#333" stroke-width="2"/>
+  <polygon points="275,610 280,615 275,620" fill="#333"/>
+  <rect x="245" y="610" width="10" height="10" fill="#333"/>
+  <text x="315" y="620" font-family="Arial, sans-serif" font-size="11">Composition</text>
+  
+  <line x1="250" y1="640" x2="280" y2="640" stroke="#333" stroke-width="2" stroke-dasharray="3,3"/>
+  <polygon points="275,635 280,640 275,645" fill="#333"/>
+  <text x="315" y="645" font-family="Arial, sans-serif" font-size="11">Uses</text>
+  
+</svg>

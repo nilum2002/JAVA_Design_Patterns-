@@ -1,0 +1,163 @@
+<svg width="900" height="700" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="900" height="700" fill="#f8f9fa"/>
+  
+  <!-- Title -->
+  <text x="450" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold">Proxy Pattern - Sequence Diagram</text>
+  
+  <!-- Actors/Objects -->
+  <!-- Client (ProxyEx) -->
+  <g id="client">
+    <rect x="50" y="50" width="120" height="60" fill="#e3f2fd" stroke="#1976d2" stroke-width="2"/>
+    <text x="110" y="75" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold">ProxyEx</text>
+    <text x="110" y="95" text-anchor="middle" font-family="Arial, sans-serif" font-size="10">(main)</text>
+  </g>
+  
+  <!-- ProxyImage -->
+  <g id="proxy">
+    <rect x="300" y="50" width="120" height="60" fill="#f3e5f5" stroke="#7b1fa2" stroke-width="2"/>
+    <text x="360" y="80" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold">ProxyImage</text>
+  </g>
+  
+  <!-- RealImage -->
+  <g id="real">
+    <rect x="650" y="50" width="120" height="60" fill="#fff3e0" stroke="#f57c00" stroke-width="2"/>
+    <text x="710" y="80" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold">RealImage</text>
+  </g>
+  
+  <!-- Lifelines -->
+  <line x1="110" y1="110" x2="110" y2="650" stroke="#333" stroke-width="2" stroke-dasharray="5,5"/>
+  <line x1="360" y1="110" x2="360" y2="650" stroke="#333" stroke-width="2" stroke-dasharray="5,5"/>
+  <line x1="710" y1="110" x2="710" y2="650" stroke="#333" stroke-width="2" stroke-dasharray="5,5"/>
+  
+  <!-- Arrow markers -->
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#333" stroke="#333" stroke-width="1"/>
+    </marker>
+    <marker id="return-arrow" markerWidth="10" markerHeight="10" refX="1" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M9,0 L9,6 L0,3 z" fill="none" stroke="#666" stroke-width="1"/>
+    </marker>
+  </defs>
+  
+  <!-- Sequence 1: Constructor call -->
+  <g id="sequence1">
+    <!-- Constructor call -->
+    <line x1="110" y1="140" x2="360" y2="140" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+    <text x="235" y="135" text-anchor="middle" font-family="Arial, sans-serif" font-size="11">new ProxyImage("test_image1.jpg")</text>
+    
+    <!-- Activation box for ProxyImage -->
+    <rect x="355" y="135" width="10" height="25" fill="#f3e5f5" stroke="#7b1fa2" stroke-width="1"/>
+    
+    <!-- Return -->
+    <line x1="360" y1="160" x2="110" y2="160" stroke="#666" stroke-width="1" stroke-dasharray="3,3" marker-end="url(#return-arrow)"/>
+    <text x="235" y="155" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#666">proxy instance</text>
+  </g>
+  
+  <!-- Note: First display call -->
+  <g id="note1">
+    <rect x="50" y="180" width="350" height="30" fill="#fff9c4" stroke="#f57f17" stroke-width="1"/>
+    <text x="225" y="200" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold">First display() call - Lazy loading occurs</text>
+  </g>
+  
+  <!-- Sequence 2: First display call -->
+  <g id="sequence2">
+    <!-- First display call -->
+    <line x1="110" y1="240" x2="360" y2="240" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+    <text x="235" y="235" text-anchor="middle" font-family="Arial, sans-serif" font-size="11">display()</text>
+    
+    <!-- Activation box for ProxyImage -->
+    <rect x="355" y="235" width="10" height="160" fill="#f3e5f5" stroke="#7b1fa2" stroke-width="1"/>
+    
+    <!-- Internal note in ProxyImage -->
+    <rect x="370" y="250" width="150" height="25" fill="#e8f5e8" stroke="#4caf50" stroke-width="1"/>
+    <text x="445" y="267" text-anchor="middle" font-family="Arial, sans-serif" font-size="10">realImage == null, create it</text>
+    
+    <!-- Create RealImage -->
+    <line x1="360" y1="290" x2="710" y2="290" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+    <text x="535" y="285" text-anchor="middle" font-family="Arial, sans-serif" font-size="11">new RealImage("test_image1.jpg")</text>
+    
+    <!-- Activation box for RealImage -->
+    <rect x="705" y="285" width="10" height="80" fill="#fff3e0" stroke="#f57c00" stroke-width="1"/>
+    
+    <!-- Self call: loadFromDisk -->
+    <line x1="710" y1="310" x2="750" y2="310" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+    <line x1="750" y1="310" x2="750" y2="330" stroke="#333" stroke-width="2"/>
+    <line x1="750" y1="330" x2="710" y2="330" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+    <text x="780" y="315" font-family="Arial, sans-serif" font-size="11">loadFromDisk()</text>
+    
+    <!-- Output note -->
+    <rect x="760" y="340" width="120" height="20" fill="#ffebee" stroke="#f44336" stroke-width="1"/>
+    <text x="820" y="355" text-anchor="middle" font-family="Arial, sans-serif" font-size="9">Loading test_image1.jpg</text>
+    
+    <!-- Return RealImage instance -->
+    <line x1="710" y1="365" x2="360" y2="365" stroke="#666" stroke-width="1" stroke-dasharray="3,3" marker-end="url(#return-arrow)"/>
+    <text x="535" y="360" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#666">real instance</text>
+    
+    <!-- Call display on RealImage -->
+    <line x1="360" y1="380" x2="710" y2="380" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+    <text x="535" y="375" text-anchor="middle" font-family="Arial, sans-serif" font-size="11">display()</text>
+    
+    <!-- Activation box for RealImage display -->
+    <rect x="705" y="375" width="10" height="25" fill="#fff3e0" stroke="#f57c00" stroke-width="1"/>
+    
+    <!-- Output note for display -->
+    <rect x="750" y="385" width="130" height="20" fill="#ffebee" stroke="#f44336" stroke-width="1"/>
+    <text x="815" y="400" text-anchor="middle" font-family="Arial, sans-serif" font-size="9">Displaying test_image1.jpg</text>
+    
+    <!-- Return from display -->
+    <line x1="710" y1="415" x2="360" y2="415" stroke="#666" stroke-width="1" stroke-dasharray="3,3" marker-end="url(#return-arrow)"/>
+    
+    <!-- Return to client -->
+    <line x1="360" y1="430" x2="110" y2="430" stroke="#666" stroke-width="1" stroke-dasharray="3,3" marker-end="url(#return-arrow)"/>
+  </g>
+  
+  <!-- Note: Second display call -->
+  <g id="note2">
+    <rect x="50" y="460" width="400" height="30" fill="#fff9c4" stroke="#f57f17" stroke-width="1"/>
+    <text x="250" y="480" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold">Second display() call - No loading, reuses existing object</text>
+  </g>
+  
+  <!-- Sequence 3: Second display call -->
+  <g id="sequence3">
+    <!-- Second display call -->
+    <line x1="110" y1="520" x2="360" y2="520" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+    <text x="235" y="515" text-anchor="middle" font-family="Arial, sans-serif" font-size="11">display()</text>
+    
+    <!-- Activation box for ProxyImage -->
+    <rect x="355" y="515" width="10" height="80" fill="#f3e5f5" stroke="#7b1fa2" stroke-width="1"/>
+    
+    <!-- Internal note in ProxyImage -->
+    <rect x="370" y="530" width="170" height="25" fill="#e8f5e8" stroke="#4caf50" stroke-width="1"/>
+    <text x="455" y="547" text-anchor="middle" font-family="Arial, sans-serif" font-size="10">realImage != null, reuse existing</text>
+    
+    <!-- Call display on existing RealImage -->
+    <line x1="360" y1="570" x2="710" y2="570" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+    <text x="535" y="565" text-anchor="middle" font-family="Arial, sans-serif" font-size="11">display()</text>
+    
+    <!-- Activation box for RealImage -->
+    <rect x="705" y="565" width="10" height="25" fill="#fff3e0" stroke="#f57c00" stroke-width="1"/>
+    
+    <!-- Output note -->
+    <rect x="750" y="575" width="130" height="20" fill="#ffebee" stroke="#f44336" stroke-width="1"/>
+    <text x="815" y="590" text-anchor="middle" font-family="Arial, sans-serif" font-size="9">Displaying test_image1.jpg</text>
+    
+    <!-- Return from display -->
+    <line x1="710" y1="600" x2="360" y2="600" stroke="#666" stroke-width="1" stroke-dasharray="3,3" marker-end="url(#return-arrow)"/>
+    
+    <!-- Return to client -->
+    <line x1="360" y1="615" x2="110" y2="615" stroke="#666" stroke-width="1" stroke-dasharray="3,3" marker-end="url(#return-arrow)"/>
+  </g>
+  
+  <!-- Legend -->
+  <g id="legend">
+    <rect x="50" y="660" width="400" height="30" fill="#f5f5f5" stroke="#ccc" stroke-width="1"/>
+    <text x="60" y="675" font-family="Arial, sans-serif" font-size="10" font-weight="bold">Legend:</text>
+    <line x1="110" y1="680" x2="140" y2="680" stroke="#333" stroke-width="2"/>
+    <text x="145" y="684" font-family="Arial, sans-serif" font-size="9">Method call</text>
+    <line x1="200" y1="680" x2="230" y2="680" stroke="#666" stroke-width="1" stroke-dasharray="3,3"/>
+    <text x="235" y="684" font-family="Arial, sans-serif" font-size="9">Return</text>
+    <rect x="290" y="675" width="15" height="10" fill="#e3f2fd" stroke="#1976d2" stroke-width="1"/>
+    <text x="310" y="684" font-family="Arial, sans-serif" font-size="9">Activation box</text>
+  </g>
+</svg>

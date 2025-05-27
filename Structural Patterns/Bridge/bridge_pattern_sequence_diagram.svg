@@ -1,0 +1,241 @@
+<svg width="1000" height="800" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1000" height="800" fill="#f8f9fa"/>
+  
+  <!-- Title -->
+  <text x="500" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold">Bridge Pattern - Sequence Diagram</text>
+  
+  <!-- Actors/Objects -->
+  <!-- Client (BridgePatternDemo) -->
+  <g id="client">
+    <rect x="50" y="50" width="140" height="60" fill="#fff8e1" stroke="#ffa000" stroke-width="2"/>
+    <text x="120" y="75" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold">BridgePatternDemo</text>
+    <text x="120" y="95" text-anchor="middle" font-family="Arial, sans-serif" font-size="10">(main)</text>
+  </g>
+  
+  <!-- TV -->
+  <g id="tv">
+    <rect x="250" y="50" width="100" height="60" fill="#fff3e0" stroke="#f57c00" stroke-width="2"/>
+    <text x="300" y="85" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold">TV</text>
+  </g>
+  
+  <!-- BasicRemoteControl -->
+  <g id="remote">
+    <rect x="420" y="50" width="160" height="60" fill="#fce4ec" stroke="#c2185b" stroke-width="2"/>
+    <text x="500" y="75" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold">BasicRemoteControl</text>
+    <text x="500" y="95" text-anchor="middle" font-family="Arial, sans-serif" font-size="10">(remote)</text>
+  </g>
+  
+  <!-- Radio -->
+  <g id="radio">
+    <rect x="650" y="50" width="100" height="60" fill="#f3e5f5" stroke="#7b1fa2" stroke-width="2"/>
+    <text x="700" y="85" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Radio</text>
+  </g>
+  
+  <!-- Second Remote (for radio) -->
+  <g id="remote2">
+    <rect x="820" y="50" width="160" height="60" fill="#fce4ec" stroke="#c2185b" stroke-width="2"/>
+    <text x="900" y="75" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold">BasicRemoteControl</text>
+    <text x="900" y="95" text-anchor="middle" font-family="Arial, sans-serif" font-size="10">(remote2)</text>
+  </g>
+  
+  <!-- Lifelines -->
+  <line x1="120" y1="110" x2="120" y2="770" stroke="#333" stroke-width="2" stroke-dasharray="5,5"/>
+  <line x1="300" y1="110" x2="300" y2="770" stroke="#333" stroke-width="2" stroke-dasharray="5,5"/>
+  <line x1="500" y1="110" x2="500" y2="770" stroke="#333" stroke-width="2" stroke-dasharray="5,5"/>
+  <line x1="700" y1="110" x2="700" y2="770" stroke="#333" stroke-width="2" stroke-dasharray="5,5"/>
+  <line x1="900" y1="110" x2="900" y2="770" stroke="#333" stroke-width="2" stroke-dasharray="5,5"/>
+  
+  <!-- Arrow markers -->
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#333" stroke="#333" stroke-width="1"/>
+    </marker>
+    <marker id="return-arrow" markerWidth="10" markerHeight="10" refX="1" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M9,0 L9,6 L0,3 z" fill="none" stroke="#666" stroke-width="1"/>
+    </marker>
+  </defs>
+  
+  <!-- Comment: Working with TV -->
+  <g id="tv-section-comment">
+    <rect x="50" y="130" width="400" height="25" fill="#e8f5e8" stroke="#4caf50" stroke-width="1"/>
+    <text x="250" y="147" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold">Working with TV Device</text>
+  </g>
+  
+  <!-- Sequence 1: Create TV -->
+  <g id="sequence1">
+    <!-- Create TV -->
+    <line x1="120" y1="180" x2="300" y2="180" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+    <text x="210" y="175" text-anchor="middle" font-family="Arial, sans-serif" font-size="11">new TV()</text>
+    
+    <!-- Activation box for TV -->
+    <rect x="295" y="175" width="10" height="25" fill="#fff3e0" stroke="#f57c00" stroke-width="1"/>
+    
+    <!-- Return TV instance -->
+    <line x1="300" y1="200" x2="120" y2="200" stroke="#666" stroke-width="1" stroke-dasharray="3,3" marker-end="url(#return-arrow)"/>
+    <text x="210" y="195" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#666">tv instance</text>
+  </g>
+  
+  <!-- Sequence 2: Create Remote with TV -->
+  <g id="sequence2">
+    <!-- Create Remote -->
+    <line x1="120" y1="230" x2="500" y2="230" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+    <text x="310" y="225" text-anchor="middle" font-family="Arial, sans-serif" font-size="11">new BasicRemoteControl(tv)</text>
+    
+    <!-- Activation box for Remote -->
+    <rect x="495" y="225" width="10" height="25" fill="#fce4ec" stroke="#c2185b" stroke-width="1"/>
+    
+    <!-- Return Remote instance -->
+    <line x1="500" y1="250" x2="120" y2="250" stroke="#666" stroke-width="1" stroke-dasharray="3,3" marker-end="url(#return-arrow)"/>
+    <text x="310" y="245" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#666">remote instance</text>
+  </g>
+  
+  <!-- Sequence 3: Turn On TV -->
+  <g id="sequence3">
+    <!-- Call turnOn on remote -->
+    <line x1="120" y1="280" x2="500" y2="280" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+    <text x="310" y="275" text-anchor="middle" font-family="Arial, sans-serif" font-size="11">turnOn()</text>
+    
+    <!-- Activation box for Remote -->
+    <rect x="495" y="275" width="10" height="50" fill="#fce4ec" stroke="#c2185b" stroke-width="1"/>
+    
+    <!-- Remote delegates to TV -->
+    <line x1="500" y1="300" x2="300" y2="300" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+    <text x="400" y="295" text-anchor="middle" font-family="Arial, sans-serif" font-size="11">device.turnOn()</text>
+    
+    <!-- Activation box for TV -->
+    <rect x="295" y="295" width="10" height="25" fill="#fff3e0" stroke="#f57c00" stroke-width="1"/>
+    
+    <!-- Output note -->
+    <rect x="150" y="315" width="120" height="20" fill="#ffebee" stroke="#f44336" stroke-width="1"/>
+    <text x="210" y="330" text-anchor="middle" font-family="Arial, sans-serif" font-size="9">TV is now ON</text>
+    
+    <!-- Return from TV -->
+    <line x1="300" y1="340" x2="500" y2="340" stroke="#666" stroke-width="1" stroke-dasharray="3,3" marker-end="url(#return-arrow)"/>
+    
+    <!-- Return to client -->
+    <line x1="500" y1="350" x2="120" y2="350" stroke="#666" stroke-width="1" stroke-dasharray="3,3" marker-end="url(#return-arrow)"/>
+  </g>
+  
+  <!-- Sequence 4: Set Channel -->
+  <g id="sequence4">
+    <!-- Call setChannel on remote -->
+    <line x1="120" y1="380" x2="500" y2="380" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+    <text x="310" y="375" text-anchor="middle" font-family="Arial, sans-serif" font-size="11">setChannel(5)</text>
+    
+    <!-- Activation box for Remote -->
+    <rect x="495" y="375" width="10" height="50" fill="#fce4ec" stroke="#c2185b" stroke-width="1"/>
+    
+    <!-- Remote delegates to TV -->
+    <line x1="500" y1="400" x2="300" y2="400" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+    <text x="400" y="395" text-anchor="middle" font-family="Arial, sans-serif" font-size="11">device.setChannel(5)</text>
+    
+    <!-- Activation box for TV -->
+    <rect x="295" y="395" width="10" height="25" fill="#fff3e0" stroke="#f57c00" stroke-width="1"/>
+    
+    <!-- Output note -->
+    <rect x="120" y="415" width="160" height="20" fill="#ffebee" stroke="#f44336" stroke-width="1"/>
+    <text x="200" y="430" text-anchor="middle" font-family="Arial, sans-serif" font-size="9">TV channel set to 5</text>
+    
+    <!-- Return from TV -->
+    <line x1="300" y1="440" x2="500" y2="440" stroke="#666" stroke-width="1" stroke-dasharray="3,3" marker-end="url(#return-arrow)"/>
+    
+    <!-- Return to client -->
+    <line x1="500" y1="450" x2="120" y2="450" stroke="#666" stroke-width="1" stroke-dasharray="3,3" marker-end="url(#return-arrow)"/>
+  </g>
+  
+  <!-- Sequence 5: Turn Off TV -->
+  <g id="sequence5">
+    <!-- Call turnOff on remote -->
+    <line x1="120" y1="480" x2="500" y2="480" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+    <text x="310" y="475" text-anchor="middle" font-family="Arial, sans-serif" font-size="11">turnOff()</text>
+    
+    <!-- Activation box for Remote -->
+    <rect x="495" y="475" width="10" height="50" fill="#fce4ec" stroke="#c2185b" stroke-width="1"/>
+    
+    <!-- Remote delegates to TV -->
+    <line x1="500" y1="500" x2="300" y2="500" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+    <text x="400" y="495" text-anchor="middle" font-family="Arial, sans-serif" font-size="11">device.turnOff()</text>
+    
+    <!-- Activation box for TV -->
+    <rect x="295" y="495" width="10" height="25" fill="#fff3e0" stroke="#f57c00" stroke-width="1"/>
+    
+    <!-- Output note -->
+    <rect x="150" y="515" width="120" height="20" fill="#ffebee" stroke="#f44336" stroke-width="1"/>
+    <text x="210" y="530" text-anchor="middle" font-family="Arial, sans-serif" font-size="9">TV is now OFF</text>
+    
+    <!-- Return from TV -->
+    <line x1="300" y1="540" x2="500" y2="540" stroke="#666" stroke-width="1" stroke-dasharray="3,3" marker-end="url(#return-arrow)"/>
+    
+    <!-- Return to client -->
+    <line x1="500" y1="550" x2="120" y2="550" stroke="#666" stroke-width="1" stroke-dasharray="3,3" marker-end="url(#return-arrow)"/>
+  </g>
+  
+  <!-- Comment: Working with Radio -->
+  <g id="radio-section-comment">
+    <rect x="50" y="570" width="450" height="25" fill="#e1f5fe" stroke="#0277bd" stroke-width="1"/>
+    <text x="275" y="587" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold">Switching to Radio Device (Bridge in Action)</text>
+  </g>
+  
+  <!-- Sequence 6: Create Radio -->
+  <g id="sequence6">
+    <!-- Create Radio -->
+    <line x1="120" y1="610" x2="700" y2="610" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+    <text x="410" y="605" text-anchor="middle" font-family="Arial, sans-serif" font-size="11">new Radio()</text>
+    
+    <!-- Activation box for Radio -->
+    <rect x="695" y="605" width="10" height="25" fill="#f3e5f5" stroke="#7b1fa2" stroke-width="1"/>
+    
+    <!-- Return Radio instance -->
+    <line x1="700" y1="630" x2="120" y2="630" stroke="#666" stroke-width="1" stroke-dasharray="3,3" marker-end="url(#return-arrow)"/>
+    <text x="410" y="625" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#666">radio instance</text>
+  </g>
+  
+  <!-- Sequence 7: Create new Remote with Radio -->
+  <g id="sequence7">
+    <!-- Create Remote with Radio -->
+    <line x1="120" y1="660" x2="900" y2="660" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+    <text x="510" y="655" text-anchor="middle" font-family="Arial, sans-serif" font-size="11">new BasicRemoteControl(radio)</text>
+    
+    <!-- Activation box for Remote2 -->
+    <rect x="895" y="655" width="10" height="25" fill="#fce4ec" stroke="#c2185b" stroke-width="1"/>
+    
+    <!-- Return Remote instance -->
+    <line x1="900" y1="680" x2="120" y2="680" stroke="#666" stroke-width="1" stroke-dasharray="3,3" marker-end="url(#return-arrow)"/>
+    <text x="510" y="675" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#666">remote instance</text>
+  </g>
+  
+  <!-- Sequence 8: Turn On Radio -->
+  <g id="sequence8">
+    <!-- Call turnOn on remote -->
+    <line x1="120" y1="710" x2="900" y2="710" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+    <text x="510" y="705" text-anchor="middle" font-family="Arial, sans-serif" font-size="11">turnOn()</text>
+    
+    <!-- Activation box for Remote2 -->
+    <rect x="895" y="705" width="10" height="50" fill="#fce4ec" stroke="#c2185b" stroke-width="1"/>
+    
+    <!-- Remote delegates to Radio -->
+    <line x1="900" y1="730" x2="700" y2="730" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+    <text x="800" y="725" text-anchor="middle" font-family="Arial, sans-serif" font-size="11">device.turnOn()</text>
+    
+    <!-- Activation box for Radio -->
+    <rect x="695" y="725" width="10" height="25" fill="#f3e5f5" stroke="#7b1fa2" stroke-width="1"/>
+    
+    <!-- Output note -->
+    <rect x="750" y="745" width="130" height="20" fill="#ffebee" stroke="#f44336" stroke-width="1"/>
+    <text x="815" y="760" text-anchor="middle" font-family="Arial, sans-serif" font-size="9">Radio is now ON</text>
+    
+    <!-- Return from Radio -->
+    <line x1="700" y1="770" x2="900" y2="770" stroke="#666" stroke-width="1" stroke-dasharray="3,3" marker-end="url(#return-arrow)"/>
+    
+    <!-- Return to client -->
+    <line x1="900" y1="780" x2="120" y2="780" stroke="#666" stroke-width="1" stroke-dasharray="3,3" marker-end="url(#return-arrow)"/>
+  </g>
+  
+  <!-- Legend -->
+  <g id="legend">
+    <rect x="50" y="790" width="500" height="15" fill="#f5f5f5" stroke="#ccc" stroke-width="1"/>
+    <text x="60" y="800" font-family="Arial, sans-serif" font-size="9" font-weight="bold">Bridge Pattern Key:</text>
+    <text x="150" y="800" font-family="Arial, sans-serif" font-size="9">Same abstraction (RemoteControl) works with different implementations (TV/Radio)</text>
+  </g>
+</svg>
