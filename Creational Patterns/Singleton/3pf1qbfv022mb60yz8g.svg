@@ -1,0 +1,136 @@
+<svg width="1000" height="800" xmlns="http://www.w3.org/2000/svg">
+  <!-- White background -->
+  <rect width="1000" height="800" fill="white"/>
+  <!-- Title -->
+  <text x="500" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#333">
+    Singleton Pattern Sequence Diagram - AppSettings
+  </text>
+  
+  <!-- Participants -->
+  <rect x="50" y="60" width="120" height="40" fill="#e8f4fd" stroke="#4a90e2" stroke-width="2" rx="5"/>
+  <text x="110" y="85" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold">SingletonEx.main()</text>
+  
+  <rect x="300" y="60" width="120" height="40" fill="#fff2cc" stroke="#d6b656" stroke-width="2" rx="5"/>
+  <text x="360" y="85" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Appsettings Class</text>
+  
+  <rect x="550" y="60" width="120" height="40" fill="#f8cecc" stroke="#b85450" stroke-width="2" rx="5"/>
+  <text x="610" y="85" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Appsettings Instance</text>
+  
+  <!-- Lifelines -->
+  <line x1="110" y1="100" x2="110" y2="750" stroke="#888" stroke-width="2" stroke-dasharray="5,5"/>
+  <line x1="360" y1="100" x2="360" y2="750" stroke="#888" stroke-width="2" stroke-dasharray="5,5"/>
+  <line x1="610" y1="100" x2="610" y2="750" stroke="#888" stroke-width="2" stroke-dasharray="5,5"/>
+  
+  <!-- Activation boxes -->
+  <rect x="355" y="140" width="10" height="80" fill="#d6b656"/>
+  <rect x="605" y="170" width="10" height="30" fill="#b85450"/>
+  <rect x="605" y="240" width="10" height="20" fill="#b85450"/>
+  <rect x="605" y="280" width="10" height="20" fill="#b85450"/>
+  <rect x="355" y="320" width="10" height="30" fill="#d6b656"/>
+  <rect x="605" y="370" width="10" height="20" fill="#b85450"/>
+  <rect x="605" y="410" width="10" height="20" fill="#b85450"/>
+  <rect x="605" y="460" width="10" height="20" fill="#b85450"/>
+  <rect x="605" y="500" width="10" height="20" fill="#b85450"/>
+  <rect x="605" y="540" width="10" height="20" fill="#b85450"/>
+  <rect x="605" y="580" width="10" height="20" fill="#b85450"/>
+  
+  <!-- Messages -->
+  <!-- Create settings01 note -->
+  <rect x="80" y="120" width="100" height="15" fill="#ffffcc" stroke="#cccc00" rx="3"/>
+  <text x="130" y="132" text-anchor="middle" font-family="Arial, sans-serif" font-size="10">Create settings01</text>
+  
+  <!-- getInstance() call 1 -->
+  <line x1="110" y1="150" x2="355" y2="150" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="232" y="145" text-anchor="middle" font-family="Arial, sans-serif" font-size="11">getInstance()</text>
+  
+  <!-- Check if instance == null -->
+  <rect x="370" y="160" width="120" height="15" fill="#f0f0f0" stroke="#ccc" rx="3"/>
+  <text x="430" y="172" text-anchor="middle" font-family="Arial, sans-serif" font-size="9">Check if instance == null</text>
+  
+  <!-- new Appsettings() -->
+  <line x1="360" y1="180" x2="605" y2="180" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="482" y="175" text-anchor="middle" font-family="Arial, sans-serif" font-size="11">new Appsettings()</text>
+  
+  <!-- Constructor initialization -->
+  <rect x="620" y="190" width="80" height="15" fill="#f0f0f0" stroke="#ccc" rx="3"/>
+  <text x="660" y="202" text-anchor="middle" font-family="Arial, sans-serif" font-size="9">Theme = "Light"</text>
+  
+  <!-- Return from constructor -->
+  <line x1="605" y1="210" x2="365" y2="210" stroke="#333" stroke-width="2" stroke-dasharray="3,3" marker-end="url(#arrowhead)"/>
+  <text x="485" y="205" text-anchor="middle" font-family="Arial, sans-serif" font-size="10">return instance</text>
+  
+  <!-- Return to main -->
+  <line x1="355" y1="230" x2="115" y2="230" stroke="#333" stroke-width="2" stroke-dasharray="3,3" marker-end="url(#arrowhead)"/>
+  <text x="235" y="225" text-anchor="middle" font-family="Arial, sans-serif" font-size="10">return instance</text>
+  
+  <!-- getTheme() call -->
+  <line x1="110" y1="250" x2="605" y2="250" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="357" y="245" text-anchor="middle" font-family="Arial, sans-serif" font-size="11">getTheme()</text>
+  
+  <line x1="605" y1="270" x2="115" y2="270" stroke="#333" stroke-width="2" stroke-dasharray="3,3" marker-end="url(#arrowhead)"/>
+  <text x="360" y="265" text-anchor="middle" font-family="Arial, sans-serif" font-size="10">return "Light"</text>
+  
+  <!-- isNotificationsEnabled() call -->
+  <line x1="110" y1="290" x2="605" y2="290" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="357" y="285" text-anchor="middle" font-family="Arial, sans-serif" font-size="11">isNotificationsEnabled()</text>
+  
+  <line x1="605" y1="310" x2="115" y2="310" stroke="#333" stroke-width="2" stroke-dasharray="3,3" marker-end="url(#arrowhead)"/>
+  <text x="360" y="305" text-anchor="middle" font-family="Arial, sans-serif" font-size="10">return true</text>
+  
+  <!-- Create settings02 note -->
+  <rect x="80" y="330" width="100" height="15" fill="#ffffcc" stroke="#cccc00" rx="3"/>
+  <text x="130" y="342" text-anchor="middle" font-family="Arial, sans-serif" font-size="10">Create settings02</text>
+  
+  <!-- getInstance() call 2 -->
+  <line x1="110" y1="360" x2="355" y2="360" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="232" y="355" text-anchor="middle" font-family="Arial, sans-serif" font-size="11">getInstance()</text>
+  
+  <!-- Return existing instance -->
+  <line x1="355" y1="380" x2="115" y2="380" stroke="#333" stroke-width="2" stroke-dasharray="3,3" marker-end="url(#arrowhead)"/>
+  <text x="235" y="375" text-anchor="middle" font-family="Arial, sans-serif" font-size="10">return existing instance</text>
+  
+  <!-- setTheme() call -->
+  <line x1="110" y1="420" x2="605" y2="420" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="357" y="415" text-anchor="middle" font-family="Arial, sans-serif" font-size="11">setTheme("Dark")</text>
+  
+  <line x1="605" y1="440" x2="115" y2="440" stroke="#333" stroke-width="2" stroke-dasharray="3,3" marker-end="url(#arrowhead)"/>
+  <text x="360" y="435" text-anchor="middle" font-family="Arial, sans-serif" font-size="10">void</text>
+  
+  <!-- setNotificationsEnabled() call -->
+  <line x1="110" y1="470" x2="605" y2="470" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="357" y="465" text-anchor="middle" font-family="Arial, sans-serif" font-size="11">setNotificationsEnabled(false)</text>
+  
+  <line x1="605" y1="490" x2="115" y2="490" stroke="#333" stroke-width="2" stroke-dasharray="3,3" marker-end="url(#arrowhead)"/>
+  <text x="360" y="485" text-anchor="middle" font-family="Arial, sans-serif" font-size="10">void</text>
+  
+  <!-- Check settings01 note -->
+  <rect x="700" y="510" width="120" height="15" fill="#ffffcc" stroke="#cccc00" rx="3"/>
+  <text x="760" y="522" text-anchor="middle" font-family="Arial, sans-serif" font-size="10">Check settings01 (same instance)</text>
+  
+  <!-- Final getTheme() calls -->
+  <line x1="110" y1="550" x2="605" y2="550" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="357" y="545" text-anchor="middle" font-family="Arial, sans-serif" font-size="11">getTheme()</text>
+  
+  <line x1="605" y1="570" x2="115" y2="570" stroke="#333" stroke-width="2" stroke-dasharray="3,3" marker-end="url(#arrowhead)"/>
+  <text x="360" y="565" text-anchor="middle" font-family="Arial, sans-serif" font-size="10">return "Dark"</text>
+  
+  <!-- Final isNotificationsEnabled() calls -->
+  <line x1="110" y1="590" x2="605" y2="590" stroke="#333" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <text x="357" y="585" text-anchor="middle" font-family="Arial, sans-serif" font-size="11">isNotificationsEnabled()</text>
+  
+  <line x1="605" y1="610" x2="115" y2="610" stroke="#333" stroke-width="2" stroke-dasharray="3,3" marker-end="url(#arrowhead)"/>
+  <text x="360" y="605" text-anchor="middle" font-family="Arial, sans-serif" font-size="10">return false</text>
+  
+  <!-- Key insight note -->
+  <rect x="700" y="650" width="180" height="60" fill="#e8f8e8" stroke="#4caf50" stroke-width="2" rx="5"/>
+  <text x="790" y="670" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold">Key Singleton Behavior:</text>
+  <text x="790" y="685" text-anchor="middle" font-family="Arial, sans-serif" font-size="10">Both settings01 and settings02</text>
+  <text x="790" y="700" text-anchor="middle" font-family="Arial, sans-serif" font-size="10">reference the same instance</text>
+  
+  <!-- Arrow marker definition -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#333"/>
+    </marker>
+  </defs>
+</svg>
