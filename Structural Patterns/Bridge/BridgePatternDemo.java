@@ -8,6 +8,7 @@ interface Device{
 class TV implements Device {
     private boolean on = false;
     private int channel = 1;
+
     @Override
     public void turnOn() {
         on = true;
@@ -34,6 +35,8 @@ class TV implements Device {
 class Radio implements Device {
     private boolean on = false;
     private int channel = 1;
+
+    
     @Override
     public void turnOn() {
         on = true;
