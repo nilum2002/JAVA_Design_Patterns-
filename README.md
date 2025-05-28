@@ -14,4 +14,4 @@ This repository contains a collection of Java Design Patterns that I have learne
   Studying these patterns has deepened my knowledge in:
   Writing cleaner and more maintainable code
   Applying OOP principles effectively
-  Designing flexible and extensible systems
+  Designing flexible and extensible systems.
