@@ -1,62 +1,48 @@
-interface Device{
+// Device Interface (Implementor)
+interface Device {
     void turnOn();
     void turnOff();
-    void setChannel(int channel);
-
+    void setStation(int station);
 }
 
-class TV implements Device {
-    private boolean on = false;
-    private int channel = 1;
+// AbstractDevice to reduce code duplication
+abstract class AbstractDevice implements Device {
+    protected boolean on = false;
+    protected int station = 1;
 
     @Override
     public void turnOn() {
         on = true;
-        System.out.println("TV is now ON");
+        System.out.println(this.getClass().getSimpleName() + " is now ON");
     }
-    @Override   
+
+    @Override
     public void turnOff() {
         on = false;
-        System.out.println("TV is now OFF");
+        System.out.println(this.getClass().getSimpleName() + " is now OFF");
     }
-    @Override   
-    public void setChannel(int channel) {
+
+    @Override
+    public void setStation(int station) {
         if (on) {
-            this.channel = channel;
-            System.out.println("TV channel set to " + channel);
+            this.station = station;
+            System.out.println(this.getClass().getSimpleName() + " station set to " + station);
         } else {
-            System.out.println("TV is OFF. Cannot set channel.");
+            System.out.println(this.getClass().getSimpleName() + " is OFF. Cannot set station.");
         }
     }
-
-
 }
 
-class Radio implements Device {
-    private boolean on = false;
-    private int channel = 1;
+// Concrete Devices
+class TV extends AbstractDevice {
+    // Inherits all from AbstractDevice
+}
 
-    
-    @Override
-    public void turnOn() {
-        on = true;
-        System.out.println("Radio is now ON");
-    }
-    @Override   
-    public void turnOff() {
-        on = false;
-        System.out.println("Radio is now OFF");
-    }
-    @Override   
-    public void setChannel(int channel) {
-        if (on) {
-            this.channel = channel;
-            System.out.println("Radio channel set to " + channel);
-        } else {
-            System.out.println("Radio is OFF. Cannot set channel.");
-        }
-    }
-}// Abstraction
+class Radio extends AbstractDevice {
+    // Inherits all from AbstractDevice
+}
+
+// Abstraction
 abstract class RemoteControl {
     protected Device device;
 
@@ -66,10 +52,10 @@ abstract class RemoteControl {
 
     public abstract void turnOn();
     public abstract void turnOff();
-    public abstract void setChannel(int channel);
+    public abstract void setStation(int station);
 }
 
-// Refined Abstraction
+// Refined Abstraction - Basic
 class BasicRemoteControl extends RemoteControl {
     public BasicRemoteControl(Device device) {
         super(device);
@@ -86,26 +72,46 @@ class BasicRemoteControl extends RemoteControl {
     }
 
     @Override
-    public void setChannel(int channel) {
-        device.setChannel(channel);
+    public void setStation(int station) {
+        device.setStation(station);
     }
 }
 
-// Client Code
+// Refined Abstraction - Advanced
+class AdvancedRemoteControl extends BasicRemoteControl {
+    public AdvancedRemoteControl(Device device) {
+        super(device);
+    }
+
+    public void mute() {
+        System.out.println("Muting the device.");
+    }
+
+    public void nextStation() {
+        System.out.println("Going to next station.");
+        device.setStation(((AbstractDevice) device).station + 1);
+    }
+}
+
+// Client
 public class BridgePatternDemo {
     public static void main(String[] args) {
         Device tv = new TV();
         RemoteControl remote = new BasicRemoteControl(tv);
 
-        remote.turnOn();       // TV is ON
-        remote.setChannel(5);  // TV channel set to 5
-        remote.turnOff();      // TV is OFF
+        remote.turnOn();        // TV is ON
+        remote.setStation(5);   // TV station set to 5
+        remote.turnOff();       // TV is OFF
+
+        System.out.println();
 
         Device radio = new Radio();
-        remote = new BasicRemoteControl(radio);
+        AdvancedRemoteControl advRemote = new AdvancedRemoteControl(radio);
 
-        remote.turnOn();       // Radio is ON
-        remote.setChannel(99); // Radio frequency set to 99
-        remote.turnOff();      // Radio is OFF
+        advRemote.turnOn();        // Radio is ON
+        advRemote.setStation(99);  // Radio station set to 99
+        advRemote.nextStation();   // Go to 100
+        advRemote.mute();          // Mute
+        advRemote.turnOff();       // Radio is OFF
     }
 }
