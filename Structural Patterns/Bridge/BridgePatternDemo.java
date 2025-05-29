@@ -1,4 +1,5 @@
 // Device Interface (Implementor)
+// updated 
 interface Device {
     void turnOn();
     void turnOff();
