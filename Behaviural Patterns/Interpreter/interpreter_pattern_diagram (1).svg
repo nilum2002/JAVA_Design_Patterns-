@@ -1,0 +1,126 @@
+<svg width="900" height="700" xmlns="http://www.w3.org/2000/svg">
+  <!-- White background -->
+  <rect width="900" height="700" fill="white"/>
+  
+  <!-- Title -->
+  <text x="450" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold">Interpreter Pattern Sequence Diagram</text>
+  
+  <!-- Actors/Objects -->
+  <rect x="50" y="60" width="120" height="40" fill="#f3f4f6" stroke="#6b7280" stroke-width="2" rx="5"/>
+  <text x="110" y="85" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Client</text>
+  
+  <rect x="220" y="60" width="140" height="40" fill="#dcfce7" stroke="#16a34a" stroke-width="2" rx="5"/>
+  <text x="290" y="85" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold">NumberExpression</text>
+  
+  <rect x="410" y="60" width="120" height="40" fill="#fef3c7" stroke="#d97706" stroke-width="2" rx="5"/>
+  <text x="470" y="85" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold">AddExpression</text>
+  
+  <rect x="580" y="60" width="140" height="40" fill="#fce7f3" stroke="#db2777" stroke-width="2" rx="5"/>
+  <text x="650" y="85" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold">SubtractExpression</text>
+  
+  <rect x="770" y="60" width="100" height="40" fill="#e8f4fd" stroke="#2563eb" stroke-width="2" rx="5"/>
+  <text x="820" y="85" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Console</text>
+
+  <!-- Lifelines -->
+  <line x1="110" y1="100" x2="110" y2="650" stroke="#6b7280" stroke-width="2" stroke-dasharray="5,5"/>
+  <line x1="290" y1="100" x2="290" y2="650" stroke="#6b7280" stroke-width="2" stroke-dasharray="5,5"/>
+  <line x1="470" y1="100" x2="470" y2="650" stroke="#6b7280" stroke-width="2" stroke-dasharray="5,5"/>
+  <line x1="650" y1="100" x2="650" y2="650" stroke="#6b7280" stroke-width="2" stroke-dasharray="5,5"/>
+  <line x1="820" y1="100" x2="820" y2="650" stroke="#6b7280" stroke-width="2" stroke-dasharray="5,5"/>
+
+  <!-- Activation boxes -->
+  <rect x="105" y="130" width="10" height="500" fill="#6b7280"/>
+  <rect x="285" y="160" width="10" height="20" fill="#16a34a"/>
+  <rect x="285" y="210" width="10" height="20" fill="#16a34a"/>
+  <rect x="465" y="260" width="10" height="20" fill="#d97706"/>
+  <rect x="645" y="320" width="10" height="20" fill="#db2777"/>
+  <rect x="285" y="380" width="10" height="20" fill="#16a34a"/>
+  <rect x="285" y="430" width="10" height="20" fill="#16a34a"/>
+  <rect x="465" y="480" width="10" height="20" fill="#d97706"/>
+  <rect x="285" y="520" width="10" height="20" fill="#16a34a"/>
+  <rect x="285" y="560" width="10" height="20" fill="#16a34a"/>
+  <rect x="645" y="600" width="10" height="20" fill="#db2777"/>
+  <rect x="815" y="640" width="10" height="20" fill="#2563eb"/>
+
+  <!-- Messages -->
+  <!-- 1. Create first NumberExpression (5) -->
+  <line x1="110" y1="150" x2="290" y2="150" stroke="#374151" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="200" y="145" text-anchor="middle" font-family="Arial, sans-serif" font-size="11">1: new NumberExpression(5)</text>
+  <line x1="290" y1="170" x2="110" y2="170" stroke="#374151" stroke-width="2" stroke-dasharray="3,3"/>
+  <text x="200" y="185" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#666">five</text>
+
+  <!-- 2. Create second NumberExpression (3) -->
+  <line x1="110" y1="200" x2="290" y2="200" stroke="#374151" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="200" y="195" text-anchor="middle" font-family="Arial, sans-serif" font-size="11">2: new NumberExpression(3)</text>
+  <line x1="290" y1="220" x2="110" y2="220" stroke="#374151" stroke-width="2" stroke-dasharray="3,3"/>
+  <text x="200" y="235" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#666">three</text>
+
+  <!-- 3. Create AddExpression -->
+  <line x1="110" y1="250" x2="470" y2="250" stroke="#374151" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="290" y="245" text-anchor="middle" font-family="Arial, sans-serif" font-size="11">3: new AddExpression(five, three)</text>
+  <line x1="470" y1="270" x2="110" y2="270" stroke="#374151" stroke-width="2" stroke-dasharray="3,3"/>
+  <text x="290" y="285" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#666">addition</text>
+
+  <!-- 4. Create SubtractExpression -->
+  <line x1="110" y1="310" x2="650" y2="310" stroke="#374151" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="380" y="305" text-anchor="middle" font-family="Arial, sans-serif" font-size="11">4: new SubtractExpression(five, three)</text>
+  <line x1="650" y1="330" x2="110" y2="330" stroke="#374151" stroke-width="2" stroke-dasharray="3,3"/>
+  <text x="380" y="345" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#666">subtraction</text>
+
+  <!-- Separator line -->
+  <line x1="50" y1="360" x2="850" y2="360" stroke="#9ca3af" stroke-width="1"/>
+  <text x="450" y="375" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-style="italic">Interpret Addition Expression</text>
+
+  <!-- 5. Interpret addition -->
+  <line x1="110" y1="390" x2="470" y2="390" stroke="#374151" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="290" y="385" text-anchor="middle" font-family="Arial, sans-serif" font-size="11">5: addition.interpret()</text>
+
+  <!-- 5.1. AddExpression calls leftExpression.interpret() -->
+  <line x1="470" y1="420" x2="290" y2="420" stroke="#374151" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="380" y="415" text-anchor="middle" font-family="Arial, sans-serif" font-size="11">5.1: leftExpression.interpret()</text>
+  <line x1="290" y1="440" x2="470" y2="440" stroke="#374151" stroke-width="2" stroke-dasharray="3,3"/>
+  <text x="380" y="455" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#666">return 5</text>
+
+  <!-- 5.2. AddExpression calls rightExpression.interpret() -->
+  <line x1="470" y1="470" x2="290" y2="470" stroke="#374151" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="380" y="465" text-anchor="middle" font-family="Arial, sans-serif" font-size="11">5.2: rightExpression.interpret()</text>
+  <line x1="290" y1="490" x2="470" y2="490" stroke="#374151" stroke-width="2" stroke-dasharray="3,3"/>
+  <text x="380" y="505" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#666">return 3</text>
+
+  <!-- 5.3. Return addition result -->
+  <line x1="470" y1="510" x2="110" y2="510" stroke="#374151" stroke-width="2" stroke-dasharray="3,3"/>
+  <text x="290" y="525" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#666">return 8</text>
+
+  <!-- Separator line -->
+  <line x1="50" y1="540" x2="850" y2="540" stroke="#9ca3af" stroke-width="1"/>
+  <text x="450" y="555" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-style="italic">Interpret Subtraction Expression</text>
+
+  <!-- 6. Interpret subtraction -->
+  <line x1="110" y1="570" x2="650" y2="570" stroke="#374151" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="380" y="565" text-anchor="middle" font-family="Arial, sans-serif" font-size="11">6: subtraction.interpret()</text>
+
+  <!-- 6.1. SubtractExpression calls leftExpression.interpret() -->
+  <line x1="650" y1="590" x2="290" y2="590" stroke="#374151" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="470" y="585" text-anchor="middle" font-family="Arial, sans-serif" font-size="11">6.1: leftExpression.interpret()</text>
+  <line x1="290" y1="610" x2="650" y2="610" stroke="#374151" stroke-width="2" stroke-dasharray="3,3"/>
+  <text x="470" y="625" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#666">return 5, then rightExpression.interpret() returns 3</text>
+
+  <!-- 6.2. Return subtraction result -->
+  <line x1="650" y1="630" x2="110" y2="630" stroke="#374151" stroke-width="2" stroke-dasharray="3,3"/>
+  <text x="380" y="645" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#666">return 2</text>
+
+  <!-- Print results (implied) -->
+  <line x1="110" y1="650" x2="820" y2="650" stroke="#374151" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="465" y="645" text-anchor="middle" font-family="Arial, sans-serif" font-size="11">7: System.out.println(...)</text>
+
+  <!-- Arrow marker -->
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <polygon points="0,0 0,6 9,3" fill="#374151"/>
+    </marker>
+  </defs>
+
+  <!-- Notes -->
+  <rect x="50" y="680" width="800" height="20" fill="white" stroke="none"/>
+  <text x="70" y="695" font-family="Arial, sans-serif" font-size="11">Note: The diagram shows the recursive interpretation of composite expressions, demonstrating the Interpreter pattern's tree traversal.</text>
+</svg>
