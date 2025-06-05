@@ -1,0 +1,82 @@
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Command Interface -->
+  <rect x="320" y="50" width="160" height="80" fill="#e8f4fd" stroke="#2563eb" stroke-width="2"/>
+  <text x="400" y="75" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold">&lt;&lt;interface&gt;&gt;</text>
+  <text x="400" y="95" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold">Command</text>
+  <line x1="320" y1="105" x2="480" y2="105" stroke="#2563eb" stroke-width="1"/>
+  <text x="400" y="120" text-anchor="middle" font-family="Arial, sans-serif" font-size="12">+ execute(): void</text>
+
+  <!-- LightOnCommand -->
+  <rect x="150" y="200" width="180" height="120" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+  <text x="240" y="225" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold">LightOnCommand</text>
+  <line x1="150" y1="235" x2="330" y2="235" stroke="#d97706" stroke-width="1"/>
+  <text x="240" y="255" text-anchor="middle" font-family="Arial, sans-serif" font-size="12">- light: Light</text>
+  <line x1="150" y1="265" x2="330" y2="265" stroke="#d97706" stroke-width="1"/>
+  <text x="240" y="285" text-anchor="middle" font-family="Arial, sans-serif" font-size="12">+ LightOnCommand(Light)</text>
+  <text x="240" y="305" text-anchor="middle" font-family="Arial, sans-serif" font-size="12">+ execute(): void</text>
+
+  <!-- LightOffCommand -->
+  <rect x="470" y="200" width="180" height="120" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+  <text x="560" y="225" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold">LightOffCommand</text>
+  <line x1="470" y1="235" x2="650" y2="235" stroke="#d97706" stroke-width="1"/>
+  <text x="560" y="255" text-anchor="middle" font-family="Arial, sans-serif" font-size="12">- light: Light</text>
+  <line x1="470" y1="265" x2="650" y2="265" stroke="#d97706" stroke-width="1"/>
+  <text x="560" y="285" text-anchor="middle" font-family="Arial, sans-serif" font-size="12">+ LightOffCommand(Light)</text>
+  <text x="560" y="305" text-anchor="middle" font-family="Arial, sans-serif" font-size="12">+ execute(): void</text>
+
+  <!-- Light (Receiver) -->
+  <rect x="320" y="380" width="160" height="100" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+  <text x="400" y="405" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold">Light</text>
+  <line x1="320" y1="415" x2="480" y2="415" stroke="#16a34a" stroke-width="1"/>
+  <text x="400" y="440" text-anchor="middle" font-family="Arial, sans-serif" font-size="12">+ turnOn(): void</text>
+  <text x="400" y="460" text-anchor="middle" font-family="Arial, sans-serif" font-size="12">+ turnOff(): void</text>
+
+  <!-- RemoteControl (Invoker) -->
+  <rect x="50" y="380" width="180" height="100" fill="#fce7f3" stroke="#db2777" stroke-width="2"/>
+  <text x="140" y="405" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold">RemoteControl</text>
+  <line x1="50" y1="415" x2="230" y2="415" stroke="#db2777" stroke-width="1"/>
+  <text x="140" y="440" text-anchor="middle" font-family="Arial, sans-serif" font-size="12">- command: Command</text>
+  <line x1="50" y1="450" x2="230" y2="450" stroke="#db2777" stroke-width="1"/>
+  <text x="140" y="470" text-anchor="middle" font-family="Arial, sans-serif" font-size="12">+ setCommand(Command): void</text>
+  <text x="140" y="490" text-anchor="middle" font-family="Arial, sans-serif" font-size="12">+ pressButton(): void</text>
+
+  <!-- Inheritance arrows (implements) -->
+  <!-- LightOnCommand implements Command -->
+  <line x1="240" y1="200" x2="370" y2="130" stroke="#2563eb" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#implementsArrow)"/>
+  
+  <!-- LightOffCommand implements Command -->
+  <line x1="560" y1="200" x2="430" y2="130" stroke="#2563eb" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#implementsArrow)"/>
+
+  <!-- Association arrows -->
+  <!-- RemoteControl uses Command -->
+  <line x1="230" y1="430" x2="320" y2="430" stroke="#374151" stroke-width="2" marker-end="url(#associationArrow)"/>
+  <text x="275" y="420" text-anchor="middle" font-family="Arial, sans-serif" font-size="10">uses</text>
+
+  <!-- LightOnCommand uses Light -->
+  <line x1="240" y1="320" x2="350" y2="380" stroke="#374151" stroke-width="2" marker-end="url(#associationArrow)"/>
+  <text x="280" y="360" text-anchor="middle" font-family="Arial, sans-serif" font-size="10">uses</text>
+
+  <!-- LightOffCommand uses Light -->
+  <line x1="560" y1="320" x2="450" y2="380" stroke="#374151" stroke-width="2" marker-end="url(#associationArrow)"/>
+  <text x="520" y="360" text-anchor="middle" font-family="Arial, sans-serif" font-size="10">uses</text>
+
+  <!-- Arrow markers -->
+  <defs>
+    <marker id="implementsArrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <polygon points="0,0 0,6 9,3" fill="white" stroke="#2563eb" stroke-width="1"/>
+    </marker>
+    <marker id="associationArrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <polygon points="0,0 0,6 9,3" fill="#374151"/>
+    </marker>
+  </defs>
+
+  <!-- Legend -->
+  <rect x="550" y="500" width="220" height="90" fill="white" stroke="#6b7280" stroke-width="1"/>
+  <text x="660" y="520" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Legend</text>
+  <line x1="560" y1="535" x2="590" y2="535" stroke="#2563eb" stroke-width="2" stroke-dasharray="5,5"/>
+  <polygon points="590,532 590,538 596,535" fill="white" stroke="#2563eb" stroke-width="1"/>
+  <text x="610" y="540" font-family="Arial, sans-serif" font-size="11">implements</text>
+  <line x1="560" y1="555" x2="590" y2="555" stroke="#374151" stroke-width="2"/>
+  <polygon points="590,552 590,558 596,555" fill="#374151"/>
+  <text x="610" y="560" font-family="Arial, sans-serif" font-size="11">association</text>
+</svg>

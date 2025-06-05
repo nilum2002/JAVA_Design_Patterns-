@@ -1,0 +1,115 @@
+<svg width="900" height="700" xmlns="http://www.w3.org/2000/svg">
+  <!-- Title -->
+  <text x="450" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold">Command Pattern Sequence Diagram</text>
+  
+  <!-- Actors/Objects -->
+  <rect x="50" y="60" width="120" height="40" fill="#e8f4fd" stroke="#2563eb" stroke-width="2" rx="5"/>
+  <text x="110" y="85" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Client</text>
+  
+  <rect x="220" y="60" width="120" height="40" fill="#dcfce7" stroke="#16a34a" stroke-width="2" rx="5"/>
+  <text x="280" y="85" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Light</text>
+  
+  <rect x="390" y="60" width="120" height="40" fill="#fef3c7" stroke="#d97706" stroke-width="2" rx="5"/>
+  <text x="450" y="85" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold">LightOnCommand</text>
+  
+  <rect x="560" y="60" width="120" height="40" fill="#fce7f3" stroke="#db2777" stroke-width="2" rx="5"/>
+  <text x="620" y="85" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold">RemoteControl</text>
+  
+  <rect x="730" y="60" width="120" height="40" fill="#fef3c7" stroke="#d97706" stroke-width="2" rx="5"/>
+  <text x="790" y="85" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold">LightOffCommand</text>
+
+  <!-- Lifelines -->
+  <line x1="110" y1="100" x2="110" y2="650" stroke="#6b7280" stroke-width="2" stroke-dasharray="5,5"/>
+  <line x1="280" y1="100" x2="280" y2="650" stroke="#6b7280" stroke-width="2" stroke-dasharray="5,5"/>
+  <line x1="450" y1="100" x2="450" y2="650" stroke="#6b7280" stroke-width="2" stroke-dasharray="5,5"/>
+  <line x1="620" y1="100" x2="620" y2="650" stroke="#6b7280" stroke-width="2" stroke-dasharray="5,5"/>
+  <line x1="790" y1="100" x2="790" y2="650" stroke="#6b7280" stroke-width="2" stroke-dasharray="5,5"/>
+
+  <!-- Activation boxes -->
+  <rect x="105" y="130" width="10" height="480" fill="#374151"/>
+  <rect x="275" y="160" width="10" height="20" fill="#16a34a"/>
+  <rect x="445" y="190" width="10" height="20" fill="#d97706"/>
+  <rect x="615" y="220" width="10" height="30" fill="#db2777"/>
+  <rect x="275" y="280" width="10" height="20" fill="#16a34a"/>
+  <rect x="785" y="340" width="10" height="20" fill="#d97706"/>
+  <rect x="615" y="380" width="10" height="30" fill="#db2777"/>
+  <rect x="275" y="440" width="10" height="20" fill="#16a34a"/>
+
+  <!-- Messages -->
+  <!-- 1. Create Light -->
+  <line x1="110" y1="150" x2="280" y2="150" stroke="#374151" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="195" y="145" text-anchor="middle" font-family="Arial, sans-serif" font-size="11">1: new Light()</text>
+  <line x1="280" y1="170" x2="110" y2="170" stroke="#374151" stroke-width="2" stroke-dasharray="3,3"/>
+
+  <!-- 2. Create LightOnCommand -->
+  <line x1="110" y1="200" x2="450" y2="200" stroke="#374151" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="280" y="195" text-anchor="middle" font-family="Arial, sans-serif" font-size="11">2: new LightOnCommand(light)</text>
+  <line x1="450" y1="210" x2="110" y2="210" stroke="#374151" stroke-width="2" stroke-dasharray="3,3"/>
+
+  <!-- 3. Create RemoteControl -->
+  <line x1="110" y1="230" x2="620" y2="230" stroke="#374151" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="365" y="225" text-anchor="middle" font-family="Arial, sans-serif" font-size="11">3: new RemoteControl()</text>
+  <line x1="620" y1="250" x2="110" y2="250" stroke="#374151" stroke-width="2" stroke-dasharray="3,3"/>
+
+  <!-- 4. Set Command -->
+  <line x1="110" y1="290" x2="620" y2="290" stroke="#374151" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="365" y="285" text-anchor="middle" font-family="Arial, sans-serif" font-size="11">4: setCommand(lightOn)</text>
+
+  <!-- 5. Press Button -->
+  <line x1="110" y1="320" x2="620" y2="320" stroke="#374151" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="365" y="315" text-anchor="middle" font-family="Arial, sans-serif" font-size="11">5: pressButton()</text>
+  
+  <!-- 6. Execute command -->
+  <line x1="620" y1="330" x2="450" y2="330" stroke="#374151" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="535" y="325" text-anchor="middle" font-family="Arial, sans-serif" font-size="11">6: execute()</text>
+  
+  <!-- 7. Turn on light -->
+  <line x1="450" y1="340" x2="280" y2="340" stroke="#374151" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="365" y="335" text-anchor="middle" font-family="Arial, sans-serif" font-size="11">7: turnOn()</text>
+  
+  <!-- Response -->
+  <line x1="280" y1="350" x2="450" y2="350" stroke="#374151" stroke-width="2" stroke-dasharray="3,3"/>
+  <line x1="450" y1="360" x2="620" y2="360" stroke="#374151" stroke-width="2" stroke-dasharray="3,3"/>
+
+  <!-- Separator line -->
+  <line x1="50" y1="400" x2="850" y2="400" stroke="#9ca3af" stroke-width="1"/>
+  <text x="450" y="415" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-style="italic">Turn Light OFF</text>
+
+  <!-- 8. Create LightOffCommand -->
+  <line x1="110" y1="450" x2="790" y2="450" stroke="#374151" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="450" y="445" text-anchor="middle" font-family="Arial, sans-serif" font-size="11">8: new LightOffCommand(light)</text>
+  <line x1="790" y1="460" x2="110" y2="460" stroke="#374151" stroke-width="2" stroke-dasharray="3,3"/>
+
+  <!-- 9. Set Command -->
+  <line x1="110" y1="490" x2="620" y2="490" stroke="#374151" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="365" y="485" text-anchor="middle" font-family="Arial, sans-serif" font-size="11">9: setCommand(lightOff)</text>
+
+  <!-- 10. Press Button -->
+  <line x1="110" y1="520" x2="620" y2="520" stroke="#374151" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="365" y="515" text-anchor="middle" font-family="Arial, sans-serif" font-size="11">10: pressButton()</text>
+  
+  <!-- 11. Execute command -->
+  <line x1="620" y1="530" x2="790" y2="530" stroke="#374151" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="705" y="525" text-anchor="middle" font-family="Arial, sans-serif" font-size="11">11: execute()</text>
+  
+  <!-- 12. Turn off light -->
+  <line x1="790" y1="540" x2="280" y2="540" stroke="#374151" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="535" y="535" text-anchor="middle" font-family="Arial, sans-serif" font-size="11">12: turnOff()</text>
+  
+  <!-- Response -->
+  <line x1="280" y1="550" x2="790" y2="550" stroke="#374151" stroke-width="2" stroke-dasharray="3,3"/>
+  <line x1="790" y1="560" x2="620" y2="560" stroke="#374151" stroke-width="2" stroke-dasharray="3,3"/>
+
+  <!-- Notes -->
+  <rect x="50" y="580" width="800" height="60" fill="#f9fafb" stroke="#e5e7eb" stroke-width="1" rx="5"/>
+  <text x="70" y="600" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Notes:</text>
+  <text x="70" y="620" font-family="Arial, sans-serif" font-size="11">• Solid arrows represent synchronous method calls</text>
+  <text x="70" y="635" font-family="Arial, sans-serif" font-size="11">• Dashed arrows represent return values/responses</text>
+
+  <!-- Arrow marker -->
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <polygon points="0,0 0,6 9,3" fill="#374151"/>
+    </marker>
+  </defs>
+</svg>
