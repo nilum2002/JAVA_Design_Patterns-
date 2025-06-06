@@ -1,0 +1,163 @@
+<svg width="900" height="700" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .actor-box { fill: #e6f3ff; stroke: black; stroke-width: 2; }
+      .actor-label { font-family: Arial, sans-serif; font-size: 12px; font-weight: bold; text-anchor: middle; }
+      .lifeline { stroke: black; stroke-width: 2; stroke-dasharray: 5,5; }
+      .activation { fill: #ffffe6; stroke: black; stroke-width: 1; }
+      .message { stroke: black; stroke-width: 2; marker-end: url(#arrowhead); }
+      .return-message { stroke: black; stroke-width: 1; stroke-dasharray: 3,3; marker-end: url(#arrowhead); }
+      .message-label { font-family: Arial, sans-serif; font-size: 10px; }
+      .step-number { font-family: Arial, sans-serif; font-size: 10px; font-weight: bold; fill: blue; }
+    </style>
+    <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="black" />
+    </marker>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="900" height="700" fill="white"/>
+  
+  <!-- Title -->
+  <text x="450" y="25" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle">Memento Pattern Sequence Diagram</text>
+  
+  <!-- Actors -->
+  <rect x="50" y="50" width="80" height="40" class="actor-box"/>
+  <text x="90" y="75" class="actor-label">main</text>
+  
+  <rect x="200" y="50" width="100" height="40" class="actor-box"/>
+  <text x="250" y="75" class="actor-label">TextEditor</text>
+  
+  <rect x="380" y="50" width="80" height="40" class="actor-box"/>
+  <text x="420" y="75" class="actor-label">History</text>
+  
+  <rect x="540" y="50" width="120" height="40" class="actor-box"/>
+  <text x="600" y="75" class="actor-label">TextEditorMemento</text>
+  
+  <!-- Lifelines -->
+  <line x1="90" y1="90" x2="90" y2="650" class="lifeline"/>
+  <line x1="250" y1="90" x2="250" y2="650" class="lifeline"/>
+  <line x1="420" y1="90" x2="420" y2="650" class="lifeline"/>
+  <line x1="600" y1="90" x2="600" y2="650" class="lifeline"/>
+  
+  <!-- Step 1: write("Hello") -->
+  <text x="20" y="130" class="step-number">1.</text>
+  <line x1="90" y1="135" x2="250" y2="135" class="message"/>
+  <text x="155" y="130" class="message-label">write("Hello")</text>
+  <rect x="245" y="135" width="10" height="20" class="activation"/>
+  
+  <!-- Step 2: save() call -->
+  <text x="20" y="170" class="step-number">2.</text>
+  <line x1="90" y1="175" x2="420" y2="175" class="message"/>
+  <text x="240" y="170" class="message-label">save(editor)</text>
+  <rect x="415" y="175" width="10" height="40" class="activation"/>
+  
+  <!-- Step 3: editor.save() -->
+  <text x="340" y="195" class="step-number">3.</text>
+  <line x1="420" y1="195" x2="250" y2="195" class="message"/>
+  <text x="320" y="190" class="message-label">save()</text>
+  <rect x="245" y="195" width="10" height="40" class="activation"/>
+  
+  <!-- Step 4: new TextEditorMemento -->
+  <text x="260" y="215" class="step-number">4.</text>
+  <line x1="250" y1="215" x2="600" y2="215" class="message"/>
+  <text x="400" y="210" class="message-label">new TextEditorMemento(content)</text>
+  <rect x="595" y="215" width="10" height="20" class="activation"/>
+  
+  <!-- Step 5: return memento -->
+  <line x1="600" y1="235" x2="250" y2="235" class="return-message"/>
+  <text x="400" y="245" class="message-label">memento</text>
+  
+  <!-- Step 6: return memento to history -->
+  <line x1="250" y1="255" x2="420" y2="255" class="return-message"/>
+  <text x="320" y="265" class="message-label">memento</text>
+  
+  <!-- Step 7: write(" World") -->
+  <text x="20" y="290" class="step-number">5.</text>
+  <line x1="90" y1="295" x2="250" y2="295" class="message"/>
+  <text x="150" y="290" class="message-label">write(" World")</text>
+  <rect x="245" y="295" width="10" height="20" class="activation"/>
+  
+  <!-- Step 8: save() call again -->
+  <text x="20" y="330" class="step-number">6.</text>
+  <line x1="90" y1="335" x2="420" y2="335" class="message"/>
+  <text x="240" y="330" class="message-label">save(editor)</text>
+  <rect x="415" y="335" width="10" height="40" class="activation"/>
+  
+  <!-- Step 9: editor.save() again -->
+  <text x="340" y="355" class="step-number">7.</text>
+  <line x1="420" y1="355" x2="250" y2="355" class="message"/>
+  <text x="320" y="350" class="message-label">save()</text>
+  <rect x="245" y="355" width="10" height="40" class="activation"/>
+  
+  <!-- Step 10: new TextEditorMemento again -->
+  <text x="260" y="375" class="step-number">8.</text>
+  <line x1="250" y1="375" x2="600" y2="375" class="message"/>
+  <text x="400" y="370" class="message-label">new TextEditorMemento(content)</text>
+  <rect x="595" y="375" width="10" height="20" class="activation"/>
+  
+  <!-- Step 11: return memento -->
+  <line x1="600" y1="395" x2="250" y2="395" class="return-message"/>
+  <text x="400" y="405" class="message-label">memento</text>
+  
+  <!-- Step 12: return memento to history -->
+  <line x1="250" y1="415" x2="420" y2="415" class="return-message"/>
+  <text x="320" y="425" class="message-label">memento</text>
+  
+  <!-- Step 13: getContent() -->
+  <text x="20" y="450" class="step-number">9.</text>
+  <line x1="90" y1="455" x2="250" y2="455" class="message"/>
+  <text x="155" y="450" class="message-label">getContent()</text>
+  <rect x="245" y="455" width="10" height="20" class="activation"/>
+  
+  <!-- Step 14: return content -->
+  <line x1="250" y1="475" x2="90" y2="475" class="return-message"/>
+  <text x="155" y="485" class="message-label">"Hello World"</text>
+  
+  <!-- Step 15: undo() -->
+  <text x="20" y="510" class="step-number">10.</text>
+  <line x1="90" y1="515" x2="420" y2="515" class="message"/>
+  <text x="240" y="510" class="message-label">undo(editor)</text>
+  <rect x="415" y="515" width="10" height="60" class="activation"/>
+  
+  <!-- Step 16: history.pop() and restore -->
+  <text x="340" y="535" class="step-number">11.</text>
+  <line x1="420" y1="535" x2="250" y2="535" class="message"/>
+  <text x="320" y="530" class="message-label">restore(memento)</text>
+  <rect x="245" y="535" width="10" height="40" class="activation"/>
+  
+  <!-- Step 17: getContent() from memento -->
+  <text x="260" y="555" class="step-number">12.</text>
+  <line x1="250" y1="555" x2="600" y2="555" class="message"/>
+  <text x="400" y="550" class="message-label">getContent()</text>
+  <rect x="595" y="555" width="10" height="20" class="activation"/>
+  
+  <!-- Step 18: return content -->
+  <line x1="600" y1="575" x2="250" y2="575" class="return-message"/>
+  <text x="400" y="585" class="message-label">"Hello"</text>
+  
+  <!-- Step 19: getContent() final -->
+  <text x="20" y="610" class="step-number">13.</text>
+  <line x1="90" y1="615" x2="250" y2="615" class="message"/>
+  <text x="155" y="610" class="message-label">getContent()</text>
+  <rect x="245" y="615" width="10" height="20" class="activation"/>
+  
+  <!-- Step 20: return final content -->
+  <line x1="250" y1="635" x2="90" y2="635" class="return-message"/>
+  <text x="155" y="645" class="message-label">"Hello"</text>
+  
+  <!-- Notes -->
+  <text x="720" y="150" font-family="Arial" font-size="11" font-weight="bold">Sequence Flow:</text>
+  <text x="720" y="170" font-family="Arial" font-size="10">1. Write "Hello"</text>
+  <text x="720" y="185" font-family="Arial" font-size="10">2. Save state</text>
+  <text x="720" y="200" font-family="Arial" font-size="10">3. Create memento</text>
+  <text x="720" y="215" font-family="Arial" font-size="10">4. Store in history</text>
+  <text x="720" y="240" font-family="Arial" font-size="10">5. Write " World"</text>
+  <text x="720" y="255" font-family="Arial" font-size="10">6. Save state again</text>
+  <text x="720" y="270" font-family="Arial" font-size="10">7. Create 2nd memento</text>
+  <text x="720" y="285" font-family="Arial" font-size="10">8. Store in history</text>
+  <text x="720" y="310" font-family="Arial" font-size="10">9. Print current content</text>
+  <text x="720" y="335" font-family="Arial" font-size="10">10. Undo operation</text>
+  <text x="720" y="350" font-family="Arial" font-size="10">11. Restore from memento</text>
+  <text x="720" y="365" font-family="Arial" font-size="10">12. Print after undo</text>
+</svg>
