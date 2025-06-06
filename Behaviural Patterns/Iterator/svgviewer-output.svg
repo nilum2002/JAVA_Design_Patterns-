@@ -1,0 +1,155 @@
+<svg width="1000" height="1200" xmlns="http://www.w3.org/2000/svg">
+  <!-- White background -->
+  <rect width="1000" height="1200" fill="white" stroke="black" stroke-width="1"/>
+  
+  <!-- Title -->
+  <text x="500" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="black">Iterator Pattern Sequence Diagram</text>
+  
+  <!-- Actor boxes -->
+  <rect x="50" y="60" width="120" height="40" fill="lightblue" stroke="black" stroke-width="1"/>
+  <text x="110" y="83" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="black">main()</text>
+  
+  <rect x="300" y="60" width="140" height="40" fill="lightgreen" stroke="black" stroke-width="1"/>
+  <text x="370" y="83" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="black">NameCollection</text>
+  
+  <rect x="600" y="60" width="120" height="40" fill="lightcoral" stroke="black" stroke-width="1"/>
+  <text x="660" y="83" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="black">NameIterator</text>
+  
+  <!-- Lifelines -->
+  <line x1="110" y1="100" x2="110" y2="1150" stroke="black" stroke-width="2" stroke-dasharray="5,5"/>
+  <line x1="370" y1="100" x2="370" y2="1150" stroke="black" stroke-width="2" stroke-dasharray="5,5"/>
+  <line x1="660" y1="100" x2="660" y2="1150" stroke="black" stroke-width="2" stroke-dasharray="5,5"/>
+  
+  <!-- Messages -->
+  <!-- 1. Create names array note -->
+  <rect x="20" y="120" width="180" height="30" fill="lightyellow" stroke="black" stroke-width="1"/>
+  <text x="110" y="138" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="black">Create names array</text>
+  
+  <!-- 2. new NameCollection(names) -->
+  <line x1="110" y1="170" x2="370" y2="170" stroke="black" stroke-width="1" marker-end="url(#arrowhead)"/>
+  <text x="240" y="165" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="black">new NameCollection(names)</text>
+  
+  <!-- 3. Return nameCollection -->
+  <line x1="370" y1="190" x2="110" y2="190" stroke="black" stroke-width="1" stroke-dasharray="3,3" marker-end="url(#arrowhead)"/>
+  <text x="240" y="185" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="black">nameCollection</text>
+  
+  <!-- 4. createIterator() -->
+  <line x1="110" y1="220" x2="370" y2="220" stroke="black" stroke-width="1" marker-end="url(#arrowhead)"/>
+  <text x="240" y="215" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="black">createIterator()</text>
+  
+  <!-- 5. new NameIterator() -->
+  <line x1="370" y1="240" x2="660" y2="240" stroke="black" stroke-width="1" marker-end="url(#arrowhead)"/>
+  <text x="515" y="235" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="black">new NameIterator()</text>
+  
+  <!-- 6. Return iterator instance -->
+  <line x1="660" y1="260" x2="370" y2="260" stroke="black" stroke-width="1" stroke-dasharray="3,3" marker-end="url(#arrowhead)"/>
+  <text x="515" y="255" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="black">iterator instance</text>
+  
+  <!-- 7. Return iterator -->
+  <line x1="370" y1="280" x2="110" y2="280" stroke="black" stroke-width="1" stroke-dasharray="3,3" marker-end="url(#arrowhead)"/>
+  <text x="240" y="275" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="black">iterator</text>
+  
+  <!-- Loop note -->
+  <rect x="20" y="310" width="160" height="30" fill="lightyellow" stroke="black" stroke-width="1"/>
+  <text x="100" y="328" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="black">Start iteration loop</text>
+  
+  <!-- First iteration -->
+  <!-- hasNext() -->
+  <line x1="110" y1="360" x2="660" y2="360" stroke="black" stroke-width="1" marker-end="url(#arrowhead)"/>
+  <text x="385" y="355" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="black">hasNext()</text>
+  
+  <!-- Check note -->
+  <rect x="570" y="375" width="180" height="40" fill="lightyellow" stroke="black" stroke-width="1"/>
+  <text x="660" y="390" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="black">Check if index &lt; names.length</text>
+  <text x="660" y="405" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="black">(index=0, length=4)</text>
+  
+  <!-- return true -->
+  <line x1="660" y1="430" x2="110" y2="430" stroke="black" stroke-width="1" stroke-dasharray="3,3" marker-end="url(#arrowhead)"/>
+  <text x="385" y="425" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="black">true</text>
+  
+  <!-- next() -->
+  <line x1="110" y1="460" x2="660" y2="460" stroke="black" stroke-width="1" marker-end="url(#arrowhead)"/>
+  <text x="385" y="455" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="black">next()</text>
+  
+  <!-- Return Nilum note -->
+  <rect x="570" y="475" width="180" height="40" fill="lightyellow" stroke="black" stroke-width="1"/>
+  <text x="660" y="490" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="black">Return names[0] = "Nilum"</text>
+  <text x="660" y="505" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="black">Increment index to 1</text>
+  
+  <!-- return "Nilum" -->
+  <line x1="660" y1="530" x2="110" y2="530" stroke="black" stroke-width="1" stroke-dasharray="3,3" marker-end="url(#arrowhead)"/>
+  <text x="385" y="525" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="black">"Nilum"</text>
+  
+  <!-- Print note -->
+  <rect x="20" y="545" width="180" height="30" fill="lightyellow" stroke="black" stroke-width="1"/>
+  <text x="110" y="563" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="black">Print "Nilum"</text>
+  
+  <!-- Second iteration -->
+  <!-- hasNext() -->
+  <line x1="110" y1="590" x2="660" y2="590" stroke="black" stroke-width="1" marker-end="url(#arrowhead)"/>
+  <text x="385" y="585" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="black">hasNext()</text>
+  
+  <!-- Check note -->
+  <rect x="570" y="605" width="180" height="40" fill="lightyellow" stroke="black" stroke-width="1"/>
+  <text x="660" y="620" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="black">Check if index &lt; names.length</text>
+  <text x="660" y="635" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="black">(index=1, length=4)</text>
+  
+  <!-- return true -->
+  <line x1="660" y1="660" x2="110" y2="660" stroke="black" stroke-width="1" stroke-dasharray="3,3" marker-end="url(#arrowhead)"/>
+  <text x="385" y="655" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="black">true</text>
+  
+  <!-- next() -->
+  <line x1="110" y1="690" x2="660" y2="690" stroke="black" stroke-width="1" marker-end="url(#arrowhead)"/>
+  <text x="385" y="685" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="black">next()</text>
+  
+  <!-- Return Kamla note -->
+  <rect x="570" y="705" width="180" height="40" fill="lightyellow" stroke="black" stroke-width="1"/>
+  <text x="660" y="720" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="black">Return names[1] = "Kamla"</text>
+  <text x="660" y="735" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="black">Increment index to 2</text>
+  
+  <!-- return "Kamla" -->
+  <line x1="660" y1="760" x2="110" y2="760" stroke="black" stroke-width="1" stroke-dasharray="3,3" marker-end="url(#arrowhead)"/>
+  <text x="385" y="755" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="black">"Kamla"</text>
+  
+  <!-- Print note -->
+  <rect x="20" y="775" width="180" height="30" fill="lightyellow" stroke="black" stroke-width="1"/>
+  <text x="110" y="793" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="black">Print "Kamla"</text>
+  
+  <!-- Third iteration (abbreviated) -->
+  <line x1="110" y1="820" x2="660" y2="820" stroke="black" stroke-width="1" marker-end="url(#arrowhead)"/>
+  <text x="385" y="815" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="black">hasNext() → true</text>
+  
+  <line x1="110" y1="840" x2="660" y2="840" stroke="black" stroke-width="1" marker-end="url(#arrowhead)"/>
+  <text x="385" y="835" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="black">next() → "Sunil"</text>
+  
+  <!-- Fourth iteration (abbreviated) -->
+  <line x1="110" y1="870" x2="660" y2="870" stroke="black" stroke-width="1" marker-end="url(#arrowhead)"/>
+  <text x="385" y="865" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="black">hasNext() → true</text>
+  
+  <line x1="110" y1="890" x2="660" y2="890" stroke="black" stroke-width="1" marker-end="url(#arrowhead)"/>
+  <text x="385" y="885" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="black">next() → "Ajith"</text>
+  
+  <!-- Final hasNext() -->
+  <line x1="110" y1="920" x2="660" y2="920" stroke="black" stroke-width="1" marker-end="url(#arrowhead)"/>
+  <text x="385" y="915" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="black">hasNext()</text>
+  
+  <!-- Final check note -->
+  <rect x="570" y="935" width="180" height="40" fill="lightyellow" stroke="black" stroke-width="1"/>
+  <text x="660" y="950" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="black">Check if index &lt; names.length</text>
+  <text x="660" y="965" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="black">(index=4, length=4)</text>
+  
+  <!-- return false -->
+  <line x1="660" y1="990" x2="110" y2="990" stroke="black" stroke-width="1" stroke-dasharray="3,3" marker-end="url(#arrowhead)"/>
+  <text x="385" y="985" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="black">false</text>
+  
+  <!-- End note -->
+  <rect x="20" y="1020" width="200" height="30" fill="lightyellow" stroke="black" stroke-width="1"/>
+  <text x="120" y="1038" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="black">Exit loop - iteration complete</text>
+  
+  <!-- Arrow marker definition -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="black"/>
+    </marker>
+  </defs>
+</svg>
