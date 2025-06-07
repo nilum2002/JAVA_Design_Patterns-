@@ -1,0 +1,115 @@
+<svg width="900" height="600" xmlns="http://www.w3.org/2000/svg">
+  <!-- White background -->
+  <rect width="900" height="600" fill="white"/>
+  
+  <!-- Title -->
+  <text x="450" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="black">
+    State Pattern - Vending Machine Sequence Diagram
+  </text>
+  
+  <!-- Actors/Objects -->
+  <g id="actors">
+    <!-- Main -->
+    <rect x="50" y="50" width="80" height="40" fill="#e6f3ff" stroke="#0066cc" stroke-width="2"/>
+    <text x="90" y="75" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="black">Main</text>
+    
+    <!-- VendingMachineContext -->
+    <rect x="200" y="50" width="140" height="40" fill="#e6f3ff" stroke="#0066cc" stroke-width="2"/>
+    <text x="270" y="75" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="black">VendingMachineContext</text>
+    
+    <!-- ReadyState -->
+    <rect x="400" y="50" width="80" height="40" fill="#fff2e6" stroke="#cc6600" stroke-width="2"/>
+    <text x="440" y="75" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="black">ReadyState</text>
+    
+    <!-- ProductSelectState -->
+    <rect x="540" y="50" width="120" height="40" fill="#fff2e6" stroke="#cc6600" stroke-width="2"/>
+    <text x="600" y="75" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="black">ProductSelectState</text>
+    
+    <!-- PaymentPendingState -->
+    <rect x="720" y="50" width="130" height="40" fill="#fff2e6" stroke="#cc6600" stroke-width="2"/>
+    <text x="785" y="75" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="black">PaymentPendingState</text>
+  </g>
+  
+  <!-- Lifelines -->
+  <g id="lifelines" stroke="#cccccc" stroke-width="2" stroke-dasharray="5,5">
+    <line x1="90" y1="90" x2="90" y2="550"/>
+    <line x1="270" y1="90" x2="270" y2="550"/>
+    <line x1="440" y1="90" x2="440" y2="550"/>
+    <line x1="600" y1="90" x2="600" y2="550"/>
+    <line x1="785" y1="90" x2="785" y2="550"/>
+  </g>
+  
+  <!-- Activation boxes -->
+  <g id="activations" fill="#f0f0f0" stroke="#666666">
+    <rect x="85" y="120" width="10" height="420" stroke-width="1"/>
+    <rect x="265" y="140" width="10" height="380" stroke-width="1"/>
+  </g>
+  
+  <!-- Messages -->
+  <g id="messages" font-family="Arial, sans-serif" font-size="11">
+    
+    <!-- 1. Create ReadyState -->
+    <line x1="95" y1="130" x2="435" y2="130" stroke="#0066cc" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <text x="265" y="125" text-anchor="middle" fill="black">1: new ReadyState()</text>
+    
+    <!-- 2. setState(readyState) -->
+    <line x1="95" y1="160" x2="265" y2="160" stroke="#0066cc" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <text x="180" y="155" text-anchor="middle" fill="black">2: setState(readyState)</text>
+    
+    <!-- 3. request() -->
+    <line x1="95" y1="190" x2="265" y2="190" stroke="#0066cc" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <text x="180" y="185" text-anchor="middle" fill="black">3: request()</text>
+    
+    <!-- 4. HandleRequest() -->
+    <line x1="275" y1="210" x2="435" y2="210" stroke="#0066cc" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <text x="355" y="205" text-anchor="middle" fill="black">4: HandleRequest()</text>
+    
+    <!-- 5. Create ProductSelectState -->
+    <line x1="95" y1="250" x2="595" y2="250" stroke="#0066cc" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <text x="345" y="245" text-anchor="middle" fill="black">5: new ProductSelectState()</text>
+    
+    <!-- 6. setState(productSel) -->
+    <line x1="95" y1="280" x2="265" y2="280" stroke="#0066cc" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <text x="180" y="275" text-anchor="middle" fill="black">6: setState(productSel)</text>
+    
+    <!-- 7. request() -->
+    <line x1="95" y1="310" x2="265" y2="310" stroke="#0066cc" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <text x="180" y="305" text-anchor="middle" fill="black">7: request()</text>
+    
+    <!-- 8. HandleRequest() -->
+    <line x1="275" y1="330" x2="595" y2="330" stroke="#0066cc" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <text x="435" y="325" text-anchor="middle" fill="black">8: HandleRequest()</text>
+    
+    <!-- 9. Create PaymentPendingState -->
+    <line x1="95" y1="370" x2="780" y2="370" stroke="#0066cc" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <text x="437" y="365" text-anchor="middle" fill="black">9: new PaymentPendingState()</text>
+    
+    <!-- 10. setState(payment) -->
+    <line x1="95" y1="400" x2="265" y2="400" stroke="#0066cc" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <text x="180" y="395" text-anchor="middle" fill="black">10: setState(payment)</text>
+    
+    <!-- 11. request() -->
+    <line x1="95" y1="430" x2="265" y2="430" stroke="#0066cc" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <text x="180" y="425" text-anchor="middle" fill="black">11: request()</text>
+    
+    <!-- 12. HandleRequest() -->
+    <line x1="275" y1="450" x2="780" y2="450" stroke="#0066cc" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <text x="527" y="445" text-anchor="middle" fill="black">12: HandleRequest()</text>
+    
+  </g>
+  
+  <!-- Notes -->
+  <g id="notes" font-family="Arial, sans-serif" font-size="10" fill="#666666">
+    <text x="480" y="220" fill="green">Prints: "Ready State: Please select a product"</text>
+    <text x="480" y="340" fill="green">Prints: "Product Select State: Please Select the product"</text>
+    <text x="480" y="460" fill="green">Prints: "PaymentPending State: Please do the payment"</text>
+  </g>
+  
+  <!-- Arrow marker definition -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#0066cc"/>
+    </marker>
+  </defs>
+  
+</svg>
