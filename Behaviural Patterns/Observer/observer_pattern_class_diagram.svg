@@ -1,0 +1,123 @@
+<svg width="900" height="700" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .interface-box { fill: #f0f8ff; stroke: black; stroke-width: 2; }
+      .class-box { fill: white; stroke: black; stroke-width: 2; }
+      .interface-title { font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; text-anchor: middle; font-style: italic; }
+      .class-title { font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; text-anchor: middle; }
+      .class-content { font-family: Arial, sans-serif; font-size: 11px; }
+      .separator { stroke: black; stroke-width: 1; }
+      .implements { stroke: black; stroke-width: 2; fill: none; stroke-dasharray: 5,5; marker-end: url(#triangle); }
+      .dependency { stroke: black; stroke-width: 2; fill: none; stroke-dasharray: 3,3; marker-end: url(#arrowhead); }
+      .composition { stroke: black; stroke-width: 2; fill: none; marker-start: url(#diamond); }
+      .stereotype { font-family: Arial, sans-serif; font-size: 10px; font-style: italic; text-anchor: middle; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="black" />
+    </marker>
+    <marker id="triangle" markerWidth="12" markerHeight="10" refX="10" refY="5" orient="auto">
+      <polygon points="0 0, 10 5, 0 10" fill="white" stroke="black" stroke-width="1"/>
+    </marker>
+    <marker id="diamond" markerWidth="12" markerHeight="8" refX="2" refY="4" orient="auto">
+      <polygon points="0 4, 4 0, 8 4, 4 8" fill="black" />
+    </marker>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="900" height="700" fill="white"/>
+  
+  <!-- Title -->
+  <text x="450" y="25" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle">Observer Pattern Class Diagram</text>
+  
+  <!-- Observer Interface -->
+  <rect x="50" y="80" width="200" height="100" class="interface-box"/>
+  <text x="60" y="100" class="stereotype">&lt;&lt;interface&gt;&gt;</text>
+  <text x="150" y="120" class="interface-title">observer</text>
+  <line x1="50" y1="130" x2="250" y2="130" class="separator"/>
+  <text x="60" y="155" class="class-content">+ update(String): void</text>
+  
+  <!-- Subject Interface -->
+  <rect x="350" y="80" width="300" height="140" class="interface-box"/>
+  <text x="360" y="100" class="stereotype">&lt;&lt;interface&gt;&gt;</text>
+  <text x="500" y="120" class="interface-title">Subject</text>
+  <line x1="350" y1="130" x2="650" y2="130" class="separator"/>
+  <text x="360" y="155" class="class-content">+ registerObserver(observer): void</text>
+  <text x="360" y="175" class="class-content">+ removeObserver(observer): void</text>
+  <text x="360" y="195" class="class-content">+ notifyObserver(): void</text>
+  <text x="360" y="215" class="class-content">+ setNews(String): void</text>
+  
+  <!-- NewsAgency Class -->
+  <rect x="350" y="280" width="300" height="200" class="class-box"/>
+  <text x="500" y="305" class="class-title">NewsEgency</text>
+  <line x1="350" y1="315" x2="650" y2="315" class="separator"/>
+  <text x="360" y="335" class="class-content">- observers: List&lt;observer&gt;</text>
+  <text x="360" y="355" class="class-content">- news: String</text>
+  <line x1="350" y1="365" x2="650" y2="365" class="separator"/>
+  <text x="360" y="385" class="class-content">+ registerObserver(observer): void</text>
+  <text x="360" y="405" class="class-content">+ removeObserver(observer): void</text>
+  <text x="360" y="425" class="class-content">+ notifyObserver(): void</text>
+  <text x="360" y="445" class="class-content">+ setNews(String): void</text>
+  
+  <!-- NewsChannel Class -->
+  <rect x="50" y="280" width="200" height="140" class="class-box"/>
+  <text x="150" y="305" class="class-title">NewsChannel</text>
+  <line x1="50" y1="315" x2="250" y2="315" class="separator"/>
+  <text x="60" y="335" class="class-content">- name: String</text>
+  <line x1="50" y1="345" x2="250" y2="345" class="separator"/>
+  <text x="60" y="365" class="class-content">+ NewsChannel(String)</text>
+  <text x="60" y="385" class="class-content">+ update(String): void</text>
+  
+  <!-- ObserverEx Class -->
+  <rect x="700" y="350" width="150" height="80" class="class-box"/>
+  <text x="775" y="375" class="class-title">ObserverEx</text>
+  <line x1="700" y1="385" x2="850" y2="385" class="separator"/>
+  <text x="710" y="405" class="class-content">+ main(String[]): void</text>
+  
+  <!-- Relationships -->
+  
+  <!-- NewsChannel implements observer -->
+  <line x1="150" y1="280" x2="150" y2="180" class="implements"/>
+  <text x="170" y="230" class="class-content" font-size="10">implements</text>
+  
+  <!-- NewsAgency implements Subject -->
+  <line x1="500" y1="280" x2="500" y2="220" class="implements"/>
+  <text x="520" y="250" class="class-content" font-size="10">implements</text>
+  
+  <!-- NewsAgency has composition with observer (List<observer>) -->
+  <line x1="350" y1="340" x2="250" y2="340" class="composition"/>
+  <text x="290" y="335" class="class-content" font-size="10">1..*</text>
+  <text x="320" y="335" class="class-content" font-size="10">observers</text>
+  
+  <!-- Subject uses observer in method signatures -->
+  <line x1="350" y1="150" x2="250" y2="150" class="dependency"/>
+  <text x="290" y="145" class="class-content" font-size="10">uses</text>
+  
+  <!-- ObserverEx uses NewsAgency and NewsChannel -->
+  <line x1="700" y1="380" x2="650" y2="380" class="dependency"/>
+  <line x1="700" y1="400" x2="250" y2="400" class="dependency"/>
+  <text x="670" y="375" class="class-content" font-size="10">uses</text>
+  
+  <!-- Pattern role labels -->
+  <rect x="50" y="450" width="200" height="30" fill="#ffffcc" stroke="black" stroke-width="1"/>
+  <text x="150" y="470" class="class-content" font-weight="bold" text-anchor="middle">Concrete Observer</text>
+  
+  <rect x="350" y="500" width="300" height="30" fill="#ffffcc" stroke="black" stroke-width="1"/>
+  <text x="500" y="520" class="class-content" font-weight="bold" text-anchor="middle">Concrete Subject</text>
+  
+  <rect x="50" y="200" width="200" height="30" fill="#ccffcc" stroke="black" stroke-width="1"/>
+  <text x="150" y="220" class="class-content" font-weight="bold" text-anchor="middle">Observer Interface</text>
+  
+  <rect x="350" y="240" width="300" height="30" fill="#ccffcc" stroke="black" stroke-width="1"/>
+  <text x="500" y="260" class="class-content" font-weight="bold" text-anchor="middle">Subject Interface</text>
+  
+  <!-- Key -->
+  <text x="50" y="580" font-family="Arial" font-size="12" font-weight="bold">Legend:</text>
+  <line x1="50" y1="600" x2="100" y2="600" class="implements"/>
+  <text x="110" y="605" class="class-content" font-size="10">Implements</text>
+  
+  <line x1="50" y1="620" x2="100" y2="620" class="composition"/>
+  <text x="110" y="625" class="class-content" font-size="10">Composition</text>
+  
+  <line x1="50" y1="640" x2="100" y2="640" class="dependency"/>
+  <text x="110" y="645" class="class-content" font-size="10">Dependency</text>
+</svg>

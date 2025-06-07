@@ -1,0 +1,155 @@
+<svg width="1000" height="800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .actor-box { fill: #e6f3ff; stroke: black; stroke-width: 2; }
+      .actor-label { font-family: Arial, sans-serif; font-size: 12px; font-weight: bold; text-anchor: middle; }
+      .lifeline { stroke: black; stroke-width: 2; stroke-dasharray: 5,5; }
+      .activation { fill: #ffffe6; stroke: black; stroke-width: 1; }
+      .message { stroke: black; stroke-width: 2; marker-end: url(#arrowhead); }
+      .return-message { stroke: black; stroke-width: 1; stroke-dasharray: 3,3; marker-end: url(#arrowhead); }
+      .message-label { font-family: Arial, sans-serif; font-size: 10px; }
+      .step-number { font-family: Arial, sans-serif; font-size: 10px; font-weight: bold; fill: blue; }
+      .note-box { fill: #fffacd; stroke: #daa520; stroke-width: 1; }
+      .note-text { font-family: Arial, sans-serif; font-size: 9px; }
+    </style>
+    <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="black" />
+    </marker>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1000" height="800" fill="white"/>
+  
+  <!-- Title -->
+  <text x="500" y="25" font-family="Arial" font-size="16" font-weight="bold" text-anchor="middle">Observer Pattern Sequence Diagram</text>
+  
+  <!-- Actors -->
+  <rect x="50" y="50" width="80" height="40" class="actor-box"/>
+  <text x="90" y="75" class="actor-label">main</text>
+  
+  <rect x="200" y="50" width="100" height="40" class="actor-box"/>
+  <text x="250" y="75" class="actor-label">NewsEgency</text>
+  
+  <rect x="380" y="50" width="100" height="40" class="actor-box"/>
+  <text x="430" y="75" class="actor-label">NewsChannel</text>
+  <text x="430" y="85" class="actor-label" font-size="10">(Hiru FM)</text>
+  
+  <rect x="560" y="50" width="100" height="40" class="actor-box"/>
+  <text x="610" y="75" class="actor-label">NewsChannel</text>
+  <text x="610" y="85" class="actor-label" font-size="10">(Sun FM)</text>
+  
+  <!-- Lifelines -->
+  <line x1="90" y1="90" x2="90" y2="750" class="lifeline"/>
+  <line x1="250" y1="90" x2="250" y2="750" class="lifeline"/>
+  <line x1="430" y1="90" x2="430" y2="750" class="lifeline"/>
+  <line x1="610" y1="90" x2="610" y2="750" class="lifeline"/>
+  
+  <!-- Step 1: Create NewsEgency -->
+  <text x="20" y="130" class="step-number">1.</text>
+  <line x1="90" y1="135" x2="250" y2="135" class="message"/>
+  <text x="155" y="130" class="message-label">new NewsEgency()</text>
+  <rect x="245" y="135" width="10" height="20" class="activation"/>
+  
+  <!-- Step 2: Create Hiru FM NewsChannel -->
+  <text x="20" y="170" class="step-number">2.</text>
+  <line x1="90" y1="175" x2="430" y2="175" class="message"/>
+  <text x="240" y="170" class="message-label">new NewsChannel("Hiru FM")</text>
+  <rect x="425" y="175" width="10" height="20" class="activation"/>
+  
+  <!-- Step 3: Create Sun FM NewsChannel -->
+  <text x="20" y="210" class="step-number">3.</text>
+  <line x1="90" y1="215" x2="610" y2="215" class="message"/>
+  <text x="330" y="210" class="message-label">new NewsChannel("Sun FM")</text>
+  <rect x="605" y="215" width="10" height="20" class="activation"/>
+  
+  <!-- Step 4: Register Hiru FM observer -->
+  <text x="20" y="250" class="step-number">4.</text>
+  <line x1="90" y1="255" x2="250" y2="255" class="message"/>
+  <text x="155" y="250" class="message-label">registerObserver(newsch01)</text>
+  <rect x="245" y="255" width="10" height="20" class="activation"/>
+  
+  <!-- Step 5: Register Sun FM observer -->
+  <text x="20" y="290" class="step-number">5.</text>
+  <line x1="90" y1="295" x2="250" y2="295" class="message"/>
+  <text x="155" y="290" class="message-label">registerObserver(newsch02)</text>
+  <rect x="245" y="295" width="10" height="20" class="activation"/>
+  
+  <!-- Step 6: Set first news -->
+  <text x="20" y="330" class="step-number">6.</text>
+  <line x1="90" y1="335" x2="250" y2="335" class="message"/>
+  <text x="120" y="330" class="message-label">setNews("The curfew at 6.30 pm today")</text>
+  <rect x="245" y="335" width="10" height="100" class="activation"/>
+  
+  <!-- Step 7: notifyObserver() called internally -->
+  <text x="260" y="355" class="step-number">7.</text>
+  <rect x="245" y="355" width="10" height="60" class="activation"/>
+  
+  <!-- Step 8: Update Hiru FM -->
+  <text x="260" y="375" class="step-number">8.</text>
+  <line x1="250" y1="375" x2="430" y2="375" class="message"/>
+  <text x="310" y="370" class="message-label">update("The curfew at 6.30 pm today")</text>
+  <rect x="425" y="375" width="10" height="20" class="activation"/>
+  
+  <!-- Step 9: Update Sun FM -->
+  <text x="260" y="405" class="step-number">9.</text>
+  <line x1="250" y1="405" x2="610" y2="405" class="message"/>
+  <text x="400" y="400" class="message-label">update("The curfew at 6.30 pm today")</text>
+  <rect x="605" y="405" width="10" height="20" class="activation"/>
+  
+  <!-- Step 10: Remove Sun FM observer -->
+  <text x="20" y="470" class="step-number">10.</text>
+  <line x1="90" y1="475" x2="250" y2="475" class="message"/>
+  <text x="155" y="470" class="message-label">removeObserver(newsch02)</text>
+  <rect x="245" y="475" width="10" height="20" class="activation"/>
+  
+  <!-- Step 11: Set second news -->
+  <text x="20" y="520" class="step-number">11.</text>
+  <line x1="90" y1="525" x2="250" y2="525" class="message"/>
+  <text x="130" y="520" class="message-label">setNews("Today at 6.30 we will meet")</text>
+  <rect x="245" y="525" width="10" height="80" class="activation"/>
+  
+  <!-- Step 12: notifyObserver() called internally -->
+  <text x="260" y="545" class="step-number">12.</text>
+  <rect x="245" y="545" width="10" height="40" class="activation"/>
+  
+  <!-- Step 13: Update only Hiru FM (Sun FM removed) -->
+  <text x="260" y="565" class="step-number">13.</text>
+  <line x1="250" y1="565" x2="430" y2="565" class="message"/>
+  <text x="310" y="560" class="message-label">update("Today at 6.30 we will meet")</text>
+  <rect x="425" y="565" width="10" height="20" class="activation"/>
+  
+  <!-- Console Output Notes -->
+  <rect x="720" y="350" width="250" height="120" class="note-box"/>
+  <text x="730" y="370" class="note-text" font-weight="bold">Console Output:</text>
+  <text x="730" y="385" class="note-text">Hiru FM received news:</text>
+  <text x="730" y="395" class="note-text">The curfew at 6.30 pm today</text>
+  <text x="730" y="410" class="note-text">Sun FM received news:</text>
+  <text x="730" y="420" class="note-text">The curfew at 6.30 pm today</text>
+  <text x="730" y="440" class="note-text">Hiru FM received news:</text>
+  <text x="730" y="450" class="note-text">Today at 6.30 we will meet</text>
+  <text x="730" y="465" class="note-text">(Sun FM not notified - removed)</text>
+  
+  <!-- Pattern Flow Notes -->
+  <rect x="720" y="150" width="250" height="180" class="note-box"/>
+  <text x="730" y="170" class="note-text" font-weight="bold">Observer Pattern Flow:</text>
+  <text x="730" y="190" class="note-text">1. Create Subject (NewsEgency)</text>
+  <text x="730" y="205" class="note-text">2. Create Observers (NewsChannels)</text>
+  <text x="730" y="220" class="note-text">3. Register Observers with Subject</text>
+  <text x="730" y="235" class="note-text">4. Subject state change triggers</text>
+  <text x="730" y="245" class="note-text">   automatic notification</text>
+  <text x="730" y="260" class="note-text">5. All registered observers</text>
+  <text x="730" y="270" class="note-text">   receive update() call</text>
+  <text x="730" y="285" class="note-text">6. Dynamic observer removal</text>
+  <text x="730" y="300" class="note-text">7. Subsequent notifications only</text>
+  <text x="730" y="310" class="note-text">   reach remaining observers</text>
+  
+  <!-- Key Benefits -->
+  <rect x="720" y="490" width="250" height="100" class="note-box"/>
+  <text x="730" y="510" class="note-text" font-weight="bold">Pattern Benefits:</text>
+  <text x="730" y="525" class="note-text">• Loose coupling between</text>
+  <text x="730" y="535" class="note-text">  subject and observers</text>
+  <text x="730" y="550" class="note-text">• Dynamic subscription</text>
+  <text x="730" y="565" class="note-text">• Broadcast communication</text>
+  <text x="730" y="580" class="note-text">• Open/Closed principle</text>
+  
+</svg>
