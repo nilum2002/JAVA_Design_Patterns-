@@ -1,0 +1,145 @@
+<svg width="900" height="700" xmlns="http://www.w3.org/2000/svg">
+  <!-- White background -->
+  <rect width="900" height="700" fill="white" stroke="none"/>
+  
+  <!-- ExprVisitor Interface -->
+  <g id="ExprVisitor">
+    <rect x="50" y="50" width="250" height="120" fill="none" stroke="black" stroke-width="2"/>
+    <text x="175" y="75" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold">&lt;&lt;interface&gt;&gt;</text>
+    <text x="175" y="95" text-anchor="middle" font-family="Arial" font-size="16" font-weight="bold">ExprVisitor</text>
+    <line x1="50" y1="105" x2="300" y2="105" stroke="black" stroke-width="1"/>
+    <text x="60" y="125" font-family="Arial" font-size="12">+ visit(NumberExpr): int</text>
+    <text x="60" y="140" font-family="Arial" font-size="12">+ visit(AddExpr): int</text>
+    <text x="60" y="155" font-family="Arial" font-size="12">+ visit(MulExpr): int</text>
+  </g>
+  
+  <!-- Expr Interface -->
+  <g id="Expr">
+    <rect x="450" y="50" width="200" height="90" fill="none" stroke="black" stroke-width="2"/>
+    <text x="550" y="75" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold">&lt;&lt;interface&gt;&gt;</text>
+    <text x="550" y="95" text-anchor="middle" font-family="Arial" font-size="16" font-weight="bold">Expr</text>
+    <line x1="450" y1="105" x2="650" y2="105" stroke="black" stroke-width="1"/>
+    <text x="460" y="125" font-family="Arial" font-size="12">+ accept(ExprVisitor): int</text>
+  </g>
+  
+  <!-- NumberExpr Class -->
+  <g id="NumberExpr">
+    <rect x="300" y="250" width="180" height="120" fill="none" stroke="black" stroke-width="2"/>
+    <text x="390" y="275" text-anchor="middle" font-family="Arial" font-size="16" font-weight="bold">NumberExpr</text>
+    <line x1="300" y1="285" x2="480" y2="285" stroke="black" stroke-width="1"/>
+    <text x="310" y="305" font-family="Arial" font-size="12">- value: int</text>
+    <line x1="300" y1="315" x2="480" y2="315" stroke="black" stroke-width="1"/>
+    <text x="310" y="335" font-family="Arial" font-size="12">+ NumberExpr(int)</text>
+    <text x="310" y="350" font-family="Arial" font-size="12">+ accept(ExprVisitor): int</text>
+    <text x="310" y="365" font-family="Arial" font-size="12">+ getValue(): int</text>
+  </g>
+  
+  <!-- AddExpr Class -->
+  <g id="AddExpr">
+    <rect x="520" y="250" width="180" height="130" fill="none" stroke="black" stroke-width="2"/>
+    <text x="610" y="275" text-anchor="middle" font-family="Arial" font-size="16" font-weight="bold">AddExpr</text>
+    <line x1="520" y1="285" x2="700" y2="285" stroke="black" stroke-width="1"/>
+    <text x="530" y="305" font-family="Arial" font-size="12">- left: Expr</text>
+    <text x="530" y="320" font-family="Arial" font-size="12">- right: Expr</text>
+    <line x1="520" y1="330" x2="700" y2="330" stroke="black" stroke-width="1"/>
+    <text x="530" y="350" font-family="Arial" font-size="12">+ AddExpr(Expr, Expr)</text>
+    <text x="530" y="365" font-family="Arial" font-size="12">+ accept(ExprVisitor): int</text>
+    <text x="530" y="380" font-family="Arial" font-size="12">+ getLeft(): Expr</text>
+    <text x="530" y="395" font-family="Arial" font-size="12">+ getRight(): Expr</text>
+  </g>
+  
+  <!-- MulExpr Class -->
+  <g id="MulExpr">
+    <rect x="720" y="250" width="180" height="130" fill="none" stroke="black" stroke-width="2"/>
+    <text x="810" y="275" text-anchor="middle" font-family="Arial" font-size="16" font-weight="bold">MulExpr</text>
+    <line x1="720" y1="285" x2="900" y2="285" stroke="black" stroke-width="1"/>
+    <text x="730" y="305" font-family="Arial" font-size="12">- left: Expr</text>
+    <text x="730" y="320" font-family="Arial" font-size="12">- right: Expr</text>
+    <line x1="720" y1="330" x2="900" y2="330" stroke="black" stroke-width="1"/>
+    <text x="730" y="350" font-family="Arial" font-size="12">+ MulExpr(Expr, Expr)</text>
+    <text x="730" y="365" font-family="Arial" font-size="12">+ accept(ExprVisitor): int</text>
+    <text x="730" y="380" font-family="Arial" font-size="12">+ getLeft(): Expr</text>
+    <text x="730" y="395" font-family="Arial" font-size="12">+ getRight(): Expr</text>
+  </g>
+  
+  <!-- EvalVisitor Class -->
+  <g id="EvalVisitor">
+    <rect x="50" y="250" width="220" height="120" fill="none" stroke="black" stroke-width="2"/>
+    <text x="160" y="275" text-anchor="middle" font-family="Arial" font-size="16" font-weight="bold">EvalVisitor</text>
+    <line x1="50" y1="285" x2="270" y2="285" stroke="black" stroke-width="1"/>
+    <text x="60" y="305" font-family="Arial" font-size="12">+ visit(NumberExpr): int</text>
+    <text x="60" y="320" font-family="Arial" font-size="12">+ visit(AddExpr): int</text>
+    <text x="60" y="335" font-family="Arial" font-size="12">+ visit(MulExpr): int</text>
+  </g>
+  
+  <!-- Relationships -->
+  
+  <!-- EvalVisitor implements ExprVisitor -->
+  <line x1="160" y1="250" x2="175" y2="170" stroke="black" stroke-width="1" marker-end="url(#triangle)"/>
+  <text x="120" y="210" font-family="Arial" font-size="10" transform="rotate(-70 120 210)">implements</text>
+  
+  <!-- NumberExpr implements Expr -->
+  <line x1="420" y1="250" x2="530" y2="140" stroke="black" stroke-width="1" marker-end="url(#triangle)"/>
+  <text x="450" y="195" font-family="Arial" font-size="10" transform="rotate(-45 450 195)">implements</text>
+  
+  <!-- AddExpr implements Expr -->
+  <line x1="580" y1="250" x2="560" y2="140" stroke="black" stroke-width="1" marker-end="url(#triangle)"/>
+  <text x="560" y="195" font-family="Arial" font-size="10" transform="rotate(15 560 195)">implements</text>
+  
+  <!-- MulExpr implements Expr -->
+  <line x1="780" y1="250" x2="600" y2="140" stroke="black" stroke-width="1" marker-end="url(#triangle)"/>
+  <text x="680" y="195" font-family="Arial" font-size="10" transform="rotate(45 680 195)">implements</text>
+  
+  <!-- Composition relationships for AddExpr -->
+  <line x1="520" y1="315" x2="480" y2="315" stroke="black" stroke-width="1" marker-end="url(#diamond)"/>
+  <text x="485" y="310" font-family="Arial" font-size="10">left</text>
+  
+  <line x1="520" y1="320" x2="480" y2="320" stroke="black" stroke-width="1" marker-end="url(#diamond)"/>
+  <text x="485" y="335" font-family="Arial" font-size="10">right</text>
+  
+  <!-- Composition relationships for MulExpr -->
+  <line x1="720" y1="315" x2="650" y2="315" stroke="black" stroke-width="1" marker-end="url(#diamond)"/>
+  <text x="665" y="310" font-family="Arial" font-size="10">left</text>
+  
+  <line x1="720" y1="320" x2="650" y2="320" stroke="black" stroke-width="1" marker-end="url(#diamond)"/>
+  <text x="665" y="335" font-family="Arial" font-size="10">right</text>
+  
+  <!-- Dependency from Expr to ExprVisitor -->
+  <line x1="450" y1="100" x2="300" y2="100" stroke="black" stroke-width="1" stroke-dasharray="5,5" marker-end="url(#arrow)"/>
+  <text x="355" y="95" font-family="Arial" font-size="10">uses</text>
+  
+  <!-- Arrow markers -->
+  <defs>
+    <marker id="triangle" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="white" stroke="black"/>
+    </marker>
+    <marker id="diamond" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,3 L3,0 L6,3 L3,6 z" fill="white" stroke="black"/>
+    </marker>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="black"/>
+    </marker>
+  </defs>
+  
+  <!-- Legend -->
+  <g id="legend">
+    <rect x="50" y="450" width="200" height="180" fill="none" stroke="black" stroke-width="1"/>
+    <text x="150" y="470" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold">Legend</text>
+    
+    <line x1="60" y1="490" x2="90" y2="490" stroke="black" stroke-width="1" marker-end="url(#triangle)"/>
+    <text x="100" y="495" font-family="Arial" font-size="12">implements</text>
+    
+    <line x1="60" y1="510" x2="90" y2="510" stroke="black" stroke-width="1" marker-end="url(#diamond)"/>
+    <text x="100" y="515" font-family="Arial" font-size="12">composition</text>
+    
+    <line x1="60" y1="530" x2="90" y2="530" stroke="black" stroke-width="1" stroke-dasharray="5,5" marker-end="url(#arrow)"/>
+    <text x="100" y="535" font-family="Arial" font-size="12">dependency</text>
+    
+    <rect x="60" y="550" width="80" height="30" fill="none" stroke="black" stroke-width="1"/>
+    <text x="100" y="568" text-anchor="middle" font-family="Arial" font-size="12">Class</text>
+    
+    <rect x="60" y="590" width="80" height="30" fill="none" stroke="black" stroke-width="1"/>
+    <text x="100" y="600" text-anchor="middle" font-family="Arial" font-size="10">&lt;&lt;interface&gt;&gt;</text>
+    <text x="100" y="612" text-anchor="middle" font-family="Arial" font-size="12">Interface</text>
+  </g>
+</svg>
